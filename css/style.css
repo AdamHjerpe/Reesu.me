@@ -1,6 +1,7 @@
-@import url(http://fonts.googleapis.com/css?family=Cousine:400,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
-/* line 14, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
+/* line 32, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
 * {
   margin: 0;
   padding: 0;
@@ -9,164 +10,160 @@
   vertical-align: baseline;
   -webkit-font-smoothing: subpixel-antialiased; }
 
-/* line 29, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 41, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.5em;
   font-family: "Open Sans Condensed", sans-serif;
   font-weight: bold;
   -webkit-font-smoothing: antialiased; }
-  /* line 31, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+  /* line 43, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
   h1 margin, h2 margin, h3 margin, h4 margin, h5 margin, h6 margin {
     bottom: 1em; }
 
-/* line 38, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 50, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 h1 {
   font-size: 2em;
   border-spacing: 10px; }
 
-/* line 44, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 57, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 h2 {
   font-size: 1.8em; }
 
-/* line 48, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 63, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 h3 {
   font-size: 1.6em; }
 
-/* line 52, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 69, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 h4 {
-  font-size: 1.4em; }
+  font-size: 1.4em;
+  font-weight: 300;
+  text-transform: uppercase; }
 
-/* line 56, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 77, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 h5 {
   font-size: 1.2em; }
 
-/* line 60, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 83, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 h6 {
   font-size: 1em; }
 
-/* line 68, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 93, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 p {
-  font-family: Cousine, "Helvetica Neue", Arial, Garuda, Sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", Arial, Garuda, Sans-serif;
   font-size: 1em;
   margin: 0 0 1.5em 0; }
 
-/* line 74, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 101, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 ul, ol {
   margin: 0 0 1.5em 1.5em; }
 
-/* line 81, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 109, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 a {
   color: #555555;
-  border-bottom: 0.1em solid #10d080;
+  border-bottom: 0.1em solid #c14444;
   text-decoration: none; }
-  /* line 85, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+  /* line 113, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
   a:visited {
     color: #959595;
-    border-bottom: 0.1em solid #3cf0a5; }
-  /* line 88, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+    border-bottom: 0.1em solid #d47d7d; }
+  /* line 117, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
   a:hover {
     color: #3b3b3b;
-    border-bottom: 0.1em solid #0ca163; }
-  /* line 91, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+    border-bottom: 0.1em solid #9e3434; }
+  /* line 121, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
   a:focus {
     color: #2f2f2f;
-    border-bottom: 0.1em solid #0b8954; }
-  /* line 94, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+    border-bottom: 0.1em solid #8b2e2e; }
+  /* line 125, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
   a:active {
     color: #2f2f2f;
-    border-bottom: 0.1em solid #0b8954; }
+    border-bottom: 0.1em solid #8b2e2e; }
 
-/* line 103, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 135, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 li {
   margin: 0 0 0.5em 0; }
 
-/* line 111, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 143, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 em {
   font-style: italic; }
-  /* line 113, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+  /* line 145, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
   em font {
-    family: Cousine, "Helvetica Neue", Arial, Garuda, Sans-serif; }
+    family: "Open Sans", "Helvetica Neue", Arial, Garuda, Sans-serif; }
 
-/* line 117, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 150, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 strong font {
-  family: Cousine, "Helvetica Neue", Arial, Garuda, Sans-serif;
+  family: "Open Sans", "Helvetica Neue", Arial, Garuda, Sans-serif;
   weight: 700; }
 
-/* line 126, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 161, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 q:before {
   content: open-quote; }
-/* line 128, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 164, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 q:after {
   content: close-quote; }
 
-/* line 132, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 169, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 blockquote {
   background: ligthen(#eeeeee, 1.5%);
-  border-left: 10px solid #0eb871;
+  border-left: 10px solid #b13b3b;
   margin: 1.5em 0;
   padding: 0.5em 1.5em;
   quotes: “\201C”“\201D”“\2018”“\2019”; }
-  /* line 138, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+  /* line 175, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
   blockquote:lang(sv) {
     quotes: "\201D" "\201D" "\2019" "\2019"; }
-  /* line 139, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+  /* line 176, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
   blockquote:lang(da) {
     quotes: "\00BB" "\00AB" "\203A" "\2039"; }
-  /* line 147, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+  /* line 184, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
   blockquote:before {
     content: open-quote; }
-  /* line 149, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+  /* line 187, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
   blockquote:after {
     content: close-quote; }
-  /* line 151, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+  /* line 190, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
   blockquote p {
     display: inline; }
 
-/* line 70, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
+/* line 89, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
 body {
   background: #eeeeee;
   color: #555555;
-  font-family: Cousine, "Helvetica Neue", Arial, Garuda, Sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", Arial, Garuda, Sans-serif;
   font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.05em;
   line-height: 1.5em; }
   @media screen and (max-width: 1024px) {
-    /* line 70, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
+    /* line 89, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
     body {
       font-size: 14px; } }
   @media screen and (max-width: 840px) {
-    /* line 70, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
+    /* line 89, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
     body {
       font-size: 12px; } }
 
-/* line 90, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
+/* line 110, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
 header {
   width: 100%;
   height: 6em;
   margin: 0 0 0 0;
-  background: #10d080;
-  border-bottom: 1em solid #0eb871; }
-  /* line 96, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
+  border-bottom: 1em solid #b13b3b;
+  background: #c14444; }
+  /* line 116, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
   header h1 {
     line-height: 3em;
     font-family: "Open Sans Condensed", sans-serif;
     font-weight: 700; }
-  /* line 100, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
+  /* line 121, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
   header a {
     border-bottom: none;
-    color: #fbfbfb;
-    margin: 0; }
-    /* line 104, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-    header a:hover {
-      color: #aeaeae;
-      border-bottom: none; }
-    /* line 107, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-    header a:visited, header a:focus, header a:active {
-      color: #fbfbfb;
+    color: #fbfbfb; }
+    /* line 124, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
+    header a:visited, header a:focus, header a:active, header a:hover {
       border-bottom: none; }
 
-/* line 112, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
+/* line 130, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
 .header-wrap {
   position: fixed;
   height: auto;
@@ -174,204 +171,58 @@ header {
   left: 50%;
   bottom: 0;
   margin-left: -460px; }
-  /* line 119, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
+  /* line 137, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
   .header-wrap h1 {
-    background: #10d080;
-    border-bottom: 0.5em solid #0eb871;
+    background: #c14444;
     padding: 0 1em;
     margin-left: -1em;
     z-index: 0; }
   @media screen and (max-width: 1024px) {
-    /* line 112, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
+    /* line 130, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
     .header-wrap {
       left: 5%;
       margin-left: 0;
       width: auto;
       max-width: 20em; } }
   @media screen and (max-width: 840px) {
-    /* line 112, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
+    /* line 130, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
     .header-wrap {
       margin-left: 0;
       position: static;
       width: 90%;
       padding: 0 5% 0 5%; } }
 
-/* line 141, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
+/* line 160, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
 .wrapper {
   background: #eeeeee;
   padding: 0 2em; }
   @media screen and (max-width: 840px) {
-    /* line 141, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
+    /* line 160, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
     .wrapper {
       padding: 0; } }
 
-/* line 148, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
+/* line 168, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
 .content {
   max-width: 37.5em;
   min-width: 30em;
   position: absolute;
-  font: 1em/1.5 Cousine, "Helvetica Neue", Arial, Garuda, Sans-serif;
+  font: 1em/1.5 "Open Sans", "Helvetica Neue", Arial, Garuda, Sans-serif;
   left: 50%;
   margin-left: -100px;
   padding: 1.5em 3em;
   background: #f4f4f4; }
   @media screen and (max-width: 1024px) {
-    /* line 148, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
+    /* line 168, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
     .content {
       left: 35%;
       margin-left: 0;
       width: 60%;
       min-width: 60%; } }
   @media screen and (max-width: 840px) {
-    /* line 148, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
+    /* line 168, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
     .content {
       position: static;
       padding: 5%;
       padding-top: 0;
       width: 90%;
       min-width: 90%; } }
-
-/* line 173, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-.sidebar {
-  position: fixed;
-  width: 250px;
-  height: auto;
-  top: 7em;
-  left: 50%;
-  bottom: 0;
-  margin-left: -460px;
-  padding-top: 65px; }
-  /* line 182, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-  .sidebar ul {
-    font: bold 18px "Open Sans Condensed", sans-serif;
-    text-transform: uppercase;
-    list-style: none; }
-  /* line 186, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-  .sidebar ul li a {
-    text-decoration: none !important;
-    display: inline-block;
-    padding: 0 3px;
-    margin: 2px 0 2px 10px; }
-  /* line 191, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-  .sidebar p.author {
-    position: absolute;
-    bottom: 1.25em;
-    height: 2em;
-    font-size: 0.9em;
-    color: #888; }
-  /* line 197, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-  .sidebar .author {
-    font-family: "Open Sans Condensed", sans-serif; }
-  @media screen and (max-width: 1024px) {
-    /* line 173, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-    .sidebar {
-      left: 5%;
-      margin-left: 0;
-      width: 25%; } }
-  @media screen and (max-width: 840px) {
-    /* line 173, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-    .sidebar {
-      margin-left: 0;
-      position: static;
-      width: 90%;
-      padding: 5% 5% 0 5%;
-      text-align: center; }
-      /* line 209, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-      .sidebar .description {
-        margin-bottom: 1.5em; }
-      /* line 211, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-      .sidebar li {
-        display: inline-block; }
-      /* line 213, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-      .sidebar ul {
-        text-align: center; }
-      /* line 215, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-      .sidebar .author {
-        display: none; } }
-
-/* line 226, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-.post h1 {
-  text-transform: capitalize; }
-/* line 228, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-.post .date {
-  font: 700 0.75em Cousine, "Helvetica Neue", Arial, Garuda, Sans-serif;
-  text-transform: uppercase;
-  color: #959595;
-  margin: 24px 0 1.5em 20px;
-  position: relative; }
-  /* line 234, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-  .post .date:before {
-    width: 18px;
-    height: 18px;
-    position: absolute;
-    content: '';
-    left: -22px;
-    top: -3px;
-    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDoyNjZDQjA1OTM1ODZFMjExQUUwM0IwQzQwMjlEOTczMyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpENjYzQjI4QjhCNDYxMUUyQjNENkFGQ0NCRUExRDM1NSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpENjYzQjI4QThCNDYxMUUyQjNENkFGQ0NCRUExRDM1NSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4NjA1NUJCNzUzOEFFMjExQUUwM0IwQzQwMjlEOTczMyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyNjZDQjA1OTM1ODZFMjExQUUwM0IwQzQwMjlEOTczMyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PhTXJRoAAADXSURBVHjaYvz//z8DNQDL7t27sYmDTGfEoQdDztXVlYEJyg4B4rdA/AGLJhjGJgfS4wfiwAyaCcRCQMwGxMxQMTY0jdjkQHqmwQzihwqAACcQ50CdXoRmEC45aXAYYQmDCVDMQIocskGMZEbYB+QwQokBEAaCzch8dDF0wMRAJcC4a9cufqjzYF7bTKReX5jXgC4UYMHiNbACYEJ9AaQkkL2BLIaekIeA15AUbEZiM+ARo67XQAZ9BOJ3eFxGSOwFcspOBOLnoBgh0SEgQ+LAgU2tgg0gwACqTkAIjemp4gAAAABJRU5ErkJggg=="); }
-
-/* line 249, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-.pagination-arrow {
-  display: inline-block;
-  font: bold 1em/1 "Open Sans Condensed", sans-serif;
-  border: 1px solid #cccccc;
-  border-radius: 3px;
-  margin: 1.25em 1em;
-  color: #555555 !important;
-  padding: 0.5em 0.75em;
-  text-decoration: none !important;
-  text-transform: uppercase;
-  position: relative; }
-  /* line 260, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-  .pagination-arrow .newer {
-    padding-left: 20px; }
-  /* line 262, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-  .pagination-arrow .older {
-    padding-right: 20px;
-    float: right; }
-  /* line 265, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-  .pagination-arrow .newer:before, .pagination-arrow .older:before {
-    content: '';
-    border: 5px solid #555555;
-    border-color: transparent #555555 transparent transparent;
-    width: 0;
-    height: 0;
-    position: absolute;
-    left: 3px;
-    top: 12px; }
-  /* line 274, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-  .pagination-arrow .older:before {
-    left: auto;
-    right: 3px;
-    border-color: transparent transparent transparent #555555; }
-
-/* line 286, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-body.error-404 {
-  color: #eeeeee;
-  width: 100%;
-  background-size: cover;
-  background: #0eb871;
-  /* fallback for non-supporting browsers */
-  background-image: -webkit-gradient(radial, center center, 0, center center, 141, from(#12e88f), to(#0eb871), color-stop(80%, #0eb871));
-  /* old WebKit Syntax */
-  background-image: -webkit-radial-gradient(center center, circle contain, #12e88f 0%, #0eb871 80%, #0eb871 100%);
-  /* New WebKit syntax */
-  background-image: -moz-radial-gradient(center center, circle contain, #12e88f 0%, #0eb871 80%, #0eb871 100%);
-  background-image: -ms-radial-gradient(center center, circle contain, #12e88f 0%, #0eb871 80%, #0eb871 100%);
-  /* IE10+ */
-  background-image: -o-radial-gradient(center center, circle contain, #12e88f 0%, #0eb871 80%, #0eb871 100%);
-  /* Opera (13?) */ }
-
-/* line 300, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-.message {
-  padding-top: 50px; }
-  /* line 302, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-  .message h1 {
-    font-size: 36px;
-    margin-bottom: 18px; }
-  /* line 305, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-  .message p {
-    font-size: 13px; }
-
-/* line 308, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
-.center {
-  text-align: center; }

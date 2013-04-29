@@ -1,18 +1,18 @@
 ////////////////////////////////////
-// Import of fonts for breab text //
+// Import of fonts for bread text //
 ////////////////////////////////////
 
-@import url(http://fonts.googleapis.com/css?family=Cousine:400,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700);
 
 ///////////////////////////////////////////////////////////////
 // Change p-font variable to match imported font family name //
 ///////////////////////////////////////////////////////////////
 
-$p-font: Cousine, "Helvetica Neue", Arial, Garuda, Sans-serif;
+$p-font: 'Open Sans', 'Helvetica Neue', Arial, Garuda, Sans-serif;
 
-//////////////////////////////////////////
-// Import of font for headings and logo //
-//////////////////////////////////////////
+/////////////////////////////////
+// Import of font for headings //
+/////////////////////////////////
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
 
@@ -21,6 +21,18 @@ $p-font: Cousine, "Helvetica Neue", Arial, Garuda, Sans-serif;
 ///////////////////////////////////////////////////////////////
 
 $h-font: 'Open Sans Condensed', sans-serif;;
+
+/////////////////////////////
+// Import of font for logo //
+/////////////////////////////
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
+
+///////////////////////////////////////////////////////////////
+// Change h-font variable to match imported font family name //
+///////////////////////////////////////////////////////////////
+
+$logo-font: 'Open Sans Condensed', sans-serif;;
 
 ///////////////////////////////
 // All stylings for headings //
@@ -39,27 +51,40 @@ h1 {
   font: {
     size: 2em;}
   // margin: 0 0 /* insert calc function for font-size/$l-height=margin-bottom or similair */;
-  border-spacing: 10px}
+  border-spacing: 10px
+}
 
 h2 {
   font: {
-    size: 1.8em;}}
+    size: 1.8em;
+  }
+}
 
 h3 {
   font: {
-    size: 1.6em;}}
+    size: 1.6em;
+  }
+}
 
 h4 {
   font: {
-    size: 1.4em;}}
+    size: 1.4em;
+    weight: 300;
+  }
+  text-transform: uppercase;
+}
 
 h5 {
   font: {
-    size: 1.2em;}}
+    size: 1.2em;
+  }
+}
 
 h6 {
   font: {
-    size: 1em;}}
+    size: 1em;
+  }
+}
 
 ///////////////////////////////////////////
 // All stylings for general text content //
@@ -68,11 +93,14 @@ h6 {
 p {
 	font: {
 		family: $p-font;
-		size: 1em;}
-	margin: 0 0 $l-height 0;}
+		size: 1em;
+  }
+	margin: 0 0 $l-height 0;
+}
 
 ul,ol {
-	margin: 0 0 $l-height $l-height;}
+	margin: 0 0 $l-height $l-height;
+}
 
 //////////////////////////
 // Anchor link styling∏ //
@@ -84,16 +112,20 @@ a {
   text-decoration: none;
   &:visited {
     color: lighten($font-col, 25%);
-    border-bottom: 0.1em solid lighten($head-col, 15%);}
+    border-bottom: 0.1em solid lighten($head-col, 15%);
+  }
   &:hover {
     color: darken($font-col, 10%);
-    border-bottom: 0.1em solid darken($head-col, 10%);}
+    border-bottom: 0.1em solid darken($head-col, 10%);
+  }
   &:focus {
     color: darken($font-col, 15%);
-    border-bottom: 0.1em solid darken($head-col, 15%);}
+    border-bottom: 0.1em solid darken($head-col, 15%);
+  }
   &:active {
     color: darken($font-col, 15%);
-    border-bottom: 0.1em solid darken($head-col, 15%);}
+    border-bottom: 0.1em solid darken($head-col, 15%);
+  }
 }
 
 //////////////////
@@ -111,12 +143,15 @@ li {
 em {
   font-style: italic;
   font {
-    family: $p-font;}
+    family: $p-font;
+  }
 }
 strong {
   font {
     family: $p-font;
-    weight: 700;}}
+    weight: 700;
+  }
+}
 
 ///////////////////
 // Quote styling //
@@ -124,9 +159,11 @@ strong {
 
 q {
   &:before {
-    content: open-quote;}
+    content: open-quote;
+  }
   &:after {
-    content: close-quote;}
+    content: close-quote;
+  }
 }
 
 blockquote {
@@ -145,11 +182,15 @@ blockquote {
     // vertical-align:-.4em;
     }
     &:before {
-      content: open-quote;}
+      content: open-quote;
+    }
     &:after {
-      content: close-quote;}
+      content: close-quote;
+    }
   p {
-    display:inline;}}
+    display:inline;
+  }
+}
 
 ///////////////////
 // Code Styling  //
