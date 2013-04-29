@@ -77,6 +77,7 @@ All kod kommentering skall vara på engelska. Kommentera kod ofta, kortfattat oc
 - - 3.3 Sidebar
 
 Här är en lista över några speciella saker att tänka på vid kommentering av vissa språk.
+
 #### HTML 
 - Avsluta samtliga stängande taggar på större sektioner, över fem rader, med en kommentar, t.ex.
 ``` <header class="main-header">
@@ -95,8 +96,10 @@ Delfiler som ska importeras till huvudfiler skall ha ett understreck i början a
 All utvecklingskod i SASS eller JavaScript skall ligga i ```/dev/``` mappen, den skall därefter kompileras ut till en undermapp root direktivet, se nedan för en lista över specifika filtyper över hur de skall hanteras.
 
 Använd korta beskrivande namn för undermappar. Korta namn ger mindre risk att stava fel, kortare länkar och lätt överskådlig mappstruktur.
+
 #### CSS
  - Utveckling i CSS sker i SASS, utvecklings kod skall ligga i ```/dev/sass/``` för att sedan kompileras ut till ```/css/```
+
 #### JavaScript
 - Utvecklingskod skall ligga i ```/dev/js/``` för att sedan minfieras ut till ```/js/```med tillägget ".min" innan filbeteckning, t.ex. ```jquery.min.js``` 
 - Vid manuell minifiering rekommenderas även att jsHint eller jsLint köras på koden för att analysera eventuella fel, detta underlättar testningen av koden.
