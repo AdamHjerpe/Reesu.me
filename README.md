@@ -4,11 +4,11 @@
 Idén bakom Reesu.me är att göra en innovativ sida för att enkelt kunna göra ett CV med enkla färdiga typografiska mallar, samt möjligt en administrativ sida där man kan hantera CV:n ur en arbetsgivares perspektiv. Sistnämnda är dock en sekundär  funktion som kan exkluderas ur första beta prototypen.
 
 ## Index
-1. [Inledning](#1-Inledning)
-2. [Projektide](2#-Projektide)
-3. [Koncept](#3-Koncept)
+1. [Inledning](#1-inledning)
+2. [Projektide](2#-projektide)
+3. [Koncept](#3-koncept)
 4. [Planering](#4-planering)
-5. [Kod stilmall](#5-Kod-stilmall)
+5. [Kod stilmall](#5-kod-stilmall)
 
 ## 2. Projektide
 
