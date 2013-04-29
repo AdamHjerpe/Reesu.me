@@ -20,21 +20,37 @@ Idén bakom Reesu.me är att förenkla skapandet av ens CV. Det viktiga är att:
 Det måste finnas en fördel med att använda sidan, den givna fördelen är att det ska vara enkelt, därför ges användaren färdiga typografiska mallar för utseendet på det slutgiltiga CV:t. Dessa Färdiga
 
 ## 3. Koncept
-
+För att underlätta i jobbsökandet så vill vi underlätta hur du skapar och hanterar ditt CV. Vi vill att du ska kunna hantera flera versioner av ditt CV för att enkelt kunna skräddarsy varje CV du skickar ut för att maximera dina chanser att få drömjobbet.
+För att kunna skräddarsy ditt CV ytterligare får du färdiga typografiska mallar, hitta en som beskriver dig bäst.
 
 ## 4. Planering
+### Ideér
+- Möjlighet att hantera flera versioner av ens CV, för att gör detta enkelt ska innehållet enkelt kunna hämtas från ett annat CV. 
+- Möjlighet att kunna lägga till referenser i PDF format på olika 
 
 ### Daterade Mål
 - [ ] Grovmanus och flödesschema | till den 2 Maj -13.
 
 ### Typografiska Mallar
-Inled till en början med tre färdiga mallar.
+Inled till en början med tre färdiga mallar. Några mallar som kan tänkas användas:
+#### Klassisk
+Enkla Serifa typsnitt som ger ett pålitligt och  intryck
+
+#### Modern
+Moderna tydliga Sans-serifa typsnitt som förmedlar en modern känsla. 
 
 ### Att göra
 - [ ] Gör en wireframe för layouten av sidan.
 - [X] Ordna Git för projektet.
 - [X] Synopsis av projekt.
 - [ ] Gör typgrafiska Mallar för slutrendering av CV.
+
+### Sidstruktur
+Sidan kommer behöva följande sidor
+- Inloggningssida, sida som ger en enkel registrering, inloggning och förklaring av sidan.
+- Redigeringssida, den huvudsakliga sidan där man kan skapa och redigera sitt CV.
+- Visningssida, en sida som man enkelt kan länka till för att referera till sitt CV, denna sida måste även ha en gedigen utskrifts funktion.
+- Arbetsgivarsida, kommer exkluderas ur betan, tanken är att skapa en sida där arbetsgivare kan hantera arbetssökandes CV:n och kommentera och sortera dem.
 
 ## 5. Riktlinjer för innehåll
 Innehålls riktlinjerna nedan skall följas för att ge ett konsekvent utseende och kvalité på allt innehåll.
@@ -67,6 +83,7 @@ Här är en lista över några speciella saker att tänka på vid kommentering a
     </header>
     <!-- /.main-header -->
 ```
+Vid användning av [Emmett]() kan kodsnutten "|c" användas för att automatiskt skapa en slutkommentar, t.ex. ```header.main-header|c```.
 
 #### SCSS
 
@@ -81,7 +98,7 @@ Använd korta beskrivande namn för undermappar. Korta namn ger mindre risk att 
 #### CSS
  - Utveckling i CSS sker i SASS, utvecklings kod skall ligga i ```/dev/sass/``` för att sedan kompileras ut till ```/css/```
 #### JavaScript
-- Utvecklingskod skall ligga i ```/dev/js/``` för att sedan minfieras ut till ```/js/```med tillägget ".min" innan . 
+- Utvecklingskod skall ligga i ```/dev/js/``` för att sedan minfieras ut till ```/js/```med tillägget ".min" innan filbeteckning, t.ex. ```jquery.min.js``` 
 - Vid manuell minifiering rekommenderas även att jsHint eller jsLint köras på koden för att analysera eventuella fel, detta underlättar testningen av koden.
 
 ### Tabbning
