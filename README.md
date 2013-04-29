@@ -17,13 +17,14 @@ Här följer generella regler för all kod som skall skrivas. Om ej språket i f
 ### 5.1 Indentering
 * All kod skall ha mjuka tabbar (två mellanslag), en rekommendation är att ändra inställningarna i din textredigerare för att underlätta detta. 
 Html koden nedan är t.ex. tabbad med 2 mellanslagsindrag
-
-	<div class="nav">
-	..<ul>
-	  ..<li>
-	    ..<a href="#"></a>
-	    </li>
-	    <li><a href="#"></a></li>
-	    <li><a href="#"></a></li>
-	  </ul>
-	</div>
+```html
+<div class="nav">
+..<ul>
+  ..<li>
+    ..<a href="#"></a>
+    </li>
+    <li><a href="#"></a></li>
+    <li><a href="#"></a></li>
+  </ul>
+</div>
+```
