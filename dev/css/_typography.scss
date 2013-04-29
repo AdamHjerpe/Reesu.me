@@ -26,13 +26,13 @@ $h-font: 'Open Sans Condensed', sans-serif;;
 // Import of font for logo //
 /////////////////////////////
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
+@import url(http://fonts.googleapis.com/css?family=Dancing+Script:700);
 
 ///////////////////////////////////////////////////////////////
 // Change h-font variable to match imported font family name //
 ///////////////////////////////////////////////////////////////
 
-$logo-font: 'Open Sans Condensed', sans-serif;;
+$logo-font: 'Dancing Script', 'Open Sans Condensed', sans-serif;;
 
 ///////////////////////////////
 // All stylings for headings //
@@ -56,19 +56,19 @@ h1 {
 
 h2 {
   font: {
-    size: 1.8em;
+    size: 1.6em;
   }
 }
 
 h3 {
   font: {
-    size: 1.6em;
+    size: 1.4em;
   }
 }
 
 h4 {
   font: {
-    size: 1.4em;
+    size: 1.2em;
     weight: 300;
   }
   text-transform: uppercase;
@@ -76,7 +76,7 @@ h4 {
 
 h5 {
   font: {
-    size: 1.2em;
+    size: 1.1em;
   }
 }
 
@@ -95,7 +95,7 @@ p {
 		family: $p-font;
 		size: 1em;
   }
-	margin: 0 0 $l-height 0;
+	margin: 0 0 0.5em 0;
 }
 
 ul,ol {
