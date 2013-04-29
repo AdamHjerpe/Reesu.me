@@ -10,9 +10,9 @@
 
 $p-font: 'Open Sans', 'Helvetica Neue', Arial, Garuda, Sans-serif;
 
-//////////////////////////////////////////
-// Import of font for headings and logo //
-//////////////////////////////////////////
+/////////////////////////////////
+// Import of font for headings //
+/////////////////////////////////
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
 
@@ -21,6 +21,18 @@ $p-font: 'Open Sans', 'Helvetica Neue', Arial, Garuda, Sans-serif;
 ///////////////////////////////////////////////////////////////
 
 $h-font: 'Open Sans Condensed', sans-serif;;
+
+/////////////////////////////
+// Import of font for logo //
+/////////////////////////////
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
+
+///////////////////////////////////////////////////////////////
+// Change h-font variable to match imported font family name //
+///////////////////////////////////////////////////////////////
+
+$logo-font: 'Open Sans Condensed', sans-serif;;
 
 ///////////////////////////////
 // All stylings for headings //
@@ -57,7 +69,9 @@ h3 {
 h4 {
   font: {
     size: 1.4em;
+    weight: 300;
   }
+  text-transform: uppercase;
 }
 
 h5 {

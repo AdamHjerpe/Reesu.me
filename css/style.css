@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
 /* line 32, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/style.scss */
 * {
   margin: 0;
@@ -9,116 +10,118 @@
   vertical-align: baseline;
   -webkit-font-smoothing: subpixel-antialiased; }
 
-/* line 29, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 41, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.5em;
   font-family: "Open Sans Condensed", sans-serif;
   font-weight: bold;
   -webkit-font-smoothing: antialiased; }
-  /* line 31, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+  /* line 43, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
   h1 margin, h2 margin, h3 margin, h4 margin, h5 margin, h6 margin {
     bottom: 1em; }
 
-/* line 38, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 50, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 h1 {
   font-size: 2em;
   border-spacing: 10px; }
 
-/* line 45, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 57, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 h2 {
   font-size: 1.8em; }
 
-/* line 51, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 63, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 h3 {
   font-size: 1.6em; }
 
-/* line 57, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 69, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 h4 {
-  font-size: 1.4em; }
+  font-size: 1.4em;
+  font-weight: 300;
+  text-transform: uppercase; }
 
-/* line 63, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 77, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 h5 {
   font-size: 1.2em; }
 
-/* line 69, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 83, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 h6 {
   font-size: 1em; }
 
-/* line 79, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 93, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 p {
   font-family: "Open Sans", "Helvetica Neue", Arial, Garuda, Sans-serif;
   font-size: 1em;
   margin: 0 0 1.5em 0; }
 
-/* line 87, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 101, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 ul, ol {
   margin: 0 0 1.5em 1.5em; }
 
-/* line 95, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 109, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 a {
   color: #555555;
   border-bottom: 0.1em solid #c14444;
   text-decoration: none; }
-  /* line 99, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+  /* line 113, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
   a:visited {
     color: #959595;
     border-bottom: 0.1em solid #d47d7d; }
-  /* line 103, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+  /* line 117, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
   a:hover {
     color: #3b3b3b;
     border-bottom: 0.1em solid #9e3434; }
-  /* line 107, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+  /* line 121, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
   a:focus {
     color: #2f2f2f;
     border-bottom: 0.1em solid #8b2e2e; }
-  /* line 111, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+  /* line 125, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
   a:active {
     color: #2f2f2f;
     border-bottom: 0.1em solid #8b2e2e; }
 
-/* line 121, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 135, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 li {
   margin: 0 0 0.5em 0; }
 
-/* line 129, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 143, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 em {
   font-style: italic; }
-  /* line 131, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+  /* line 145, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
   em font {
     family: "Open Sans", "Helvetica Neue", Arial, Garuda, Sans-serif; }
 
-/* line 136, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 150, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 strong font {
   family: "Open Sans", "Helvetica Neue", Arial, Garuda, Sans-serif;
   weight: 700; }
 
-/* line 147, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 161, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 q:before {
   content: open-quote; }
-/* line 150, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 164, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 q:after {
   content: close-quote; }
 
-/* line 155, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+/* line 169, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
 blockquote {
   background: ligthen(#eeeeee, 1.5%);
   border-left: 10px solid #b13b3b;
   margin: 1.5em 0;
   padding: 0.5em 1.5em;
   quotes: “\201C”“\201D”“\2018”“\2019”; }
-  /* line 161, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+  /* line 175, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
   blockquote:lang(sv) {
     quotes: "\201D" "\201D" "\2019" "\2019"; }
-  /* line 162, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+  /* line 176, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
   blockquote:lang(da) {
     quotes: "\00BB" "\00AB" "\203A" "\2039"; }
-  /* line 170, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+  /* line 184, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
   blockquote:before {
     content: open-quote; }
-  /* line 173, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+  /* line 187, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
   blockquote:after {
     content: close-quote; }
-  /* line 176, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
+  /* line 190, /Users/adamhjerpe/Documents/htdocs/reesu.me/dev/css/_typography.scss */
   blockquote p {
     display: inline; }
 
