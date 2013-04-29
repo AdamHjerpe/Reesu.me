@@ -5,7 +5,7 @@ Idén bakom Reesu.me är att göra en innovativ sida för att enkelt kunna göra
 
 ## Index
 1. [Inledning](#1-inledning)
-2. [Projektide](#2-projektide)
+2. [Projektide](2#-projektide)
 3. [Koncept](#3-koncept)
 4. [Planering](#4-planering)
 5. [Riktlinjer för innehåll](#5-riktlinjer-for-innehall)
