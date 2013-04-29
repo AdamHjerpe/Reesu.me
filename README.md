@@ -8,21 +8,43 @@ Idén bakom Reesu.me är att göra en innovativ sida för att enkelt kunna göra
 2. [Projektide](2#-projektide)
 3. [Koncept](#3-koncept)
 4. [Planering](#4-planering)
-5. [Kod stilmall](#5-kod-stilmall)
+5. [Riktlinjer för innehåll](#5-riktlinjer-for-innehall)
+6. [Kod stilmall](#6-kod-stilmall)
 
 ## 2. Projektide
+Idén bakom Reesu.me är att förenkla skapandet av ens CV. Det viktiga är att:
+- Sidan är lättnavigerad, med ett enkelt UI.
+- Slutresulatet ska se bra ut. 
+
+Det måste finnas en fördel med att använda sidan, den givna fördelen är att det ska vara enkelt, därför ges användaren färdiga typografiska mallar för utseendet på det slutgiltiga CV:t. Dessa Färdiga
 
 ## 3. Koncept
 
 ## 4. Planering
 
+### Typografiska Mallar
+Inled till en början med tre färdiga mallar.
+
 ### Att göra
 - [ ] Gör en wireframe för layouten av sidan.
-- [x] Ordna Git för projektet.
+- [X] Ordna Git för projektet.
+- [X] Synopsis av projekt
+- [ ] Grovmanus och flödesschema | till den 2 Maj -13.
 
 ### Mål
 
-## 5. Kod stilmall
+## 5. Riktlinjer för innehåll
+Innehålls riktlinjerna nedan skall följas för att ge ett konsekvent utseende ock kvalité p allt innehåll.
+
+### Bilder
+
+#### Innan Publicering
+Bilder skall beskäras och optimeras innan publicering. Använd t.ex. [Smushit.com](http://www.smushit.com/), [Imageoptim.com](http://imageoptim.com/) eller liknande tjänst.
+
+### Siffror i text
+Samtliga tal i text under 10 (0-9) skall bokstaveras ut, t.ex "Sidan har tre typografiska mallar", tal över 10 skrivs ut i sifferformat, t.ex. "Året var 1984".
+
+## 6. Kod stilmall
 Här följer generella regler för all kod som skall skrivas. Om ej språket i fråga är beroende av ett specifikt syntax.
 
 ### Filstruktur
