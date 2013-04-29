@@ -1,11 +1,12 @@
 # Reesu.me
 ===
+
 ## 1. Inledning
 Idén bakom Reesu.me är att göra en innovativ sida för att enkelt kunna göra ett CV med enkla färdiga typografiska mallar, samt möjligt en administrativ sida där man kan hantera CV:n ur en arbetsgivares perspektiv. Sistnämnda är dock en sekundär  funktion som kan exkluderas ur första beta prototypen.
 
 ## Index
 1. [Inledning](#1-inledning)
-2. [Projektide](2#-projektide)
+2. [Projektide](#2-projektide)
 3. [Koncept](#3-koncept)
 4. [Planering](#4-planering)
 5. [Riktlinjer för innehåll](#5-riktlinjer-for-innehall)
@@ -30,11 +31,12 @@ Inled till en början med tre färdiga mallar.
 - [X] Ordna Git för projektet.
 - [X] Synopsis av projekt
 - [ ] Grovmanus och flödesschema | till den 2 Maj -13.
+- [ ] Typgrafiska Mallar för slutrendering av CV.
 
 ### Mål
 
 ## 5. Riktlinjer för innehåll
-Innehålls riktlinjerna nedan skall följas för att ge ett konsekvent utseende ock kvalité p allt innehåll.
+Innehålls riktlinjerna nedan skall följas för att ge ett konsekvent utseende och kvalité på allt innehåll.
 
 ### Bilder
 
