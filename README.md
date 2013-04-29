@@ -1,5 +1,5 @@
 # Reesu.me
-===
+---
 
 ## 1. Inledning
 Idén bakom Reesu.me är att göra en innovativ sida för att enkelt kunna göra ett CV med enkla färdiga typografiska mallar, samt möjligt en administrativ sida där man kan hantera CV:n ur en arbetsgivares perspektiv. Sistnämnda är dock en sekundär  funktion som kan exkluderas ur första beta prototypen.
@@ -44,7 +44,7 @@ Innehålls riktlinjerna nedan skall följas för att ge ett konsekvent utseende 
 Bilder skall beskäras och optimeras innan publicering. Använd t.ex. [Smushit.com](http://www.smushit.com/), [Imageoptim.com](http://imageoptim.com/) eller liknande tjänst.
 
 ### Siffror i text
-Samtliga tal i text under 10 (0-9) skall bokstaveras ut, t.ex "Sidan har tre typografiska mallar", tal över 10 skrivs ut i sifferformat, t.ex. "Året var 1984".
+Samtliga tal i text under 10 (0–9) skall bokstaveras ut, t.ex “Sidan har tre typografiska mallar”, tal över 10 skrivs ut i sifferformat, t.ex. “Året var 1984”.
 
 ## 6. Kod stilmall
 Här följer generella regler för all kod som skall skrivas. Om ej språket i fråga är beroende av ett specifikt syntax.
