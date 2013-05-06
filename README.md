@@ -23,6 +23,9 @@ Det måste finnas en fördel med att använda sidan, den givna fördelen är att
 För att underlätta i jobbsökandet så vill vi underlätta hur du skapar och hanterar ditt CV. Vi vill att du ska kunna hantera flera versioner av ditt CV för att enkelt kunna skräddarsy varje CV du skickar ut för att maximera dina chanser att få drömjobbet.
 För att kunna skräddarsy ditt CV ytterligare får du färdiga typografiska mallar, hitta en som beskriver dig bäst.
 
+### Målgrupp
+Sidan är inriktad mot unga jobbsökande som är på väg ut till arbetsmarknaden.
+
 ## 4. Planering
 ### Ideér
 - Möjlighet att hantera flera versioner av ens CV, för att gör detta enkelt ska innehållet enkelt kunna hämtas från ett annat CV. 
@@ -41,12 +44,17 @@ Moderna tydliga Sans-serifa typsnitt som förmedlar en modern känsla.
 
 ### Att göra
 - [ ] Gör en wireframe för layouten av sidan.
-- [X] Ordna Git för projektet.
-- [X] Synopsis av projekt.
+- [x] Ordna Git för projektet.
+- [x] Synopsis av projekt.
+- [ ] Planera ut vilka undersidor som behövs och vilket innehåll de skall ha.
 - [ ] Gör typgrafiska Mallar för slutrendering av CV.
+- [ ] Gör HTML Mockups för undersidor.
+- - [Pågående] Redigeringsida
+- - [ ] Inloggningssida
+- - [ ] Visningssida
 
 ### Sidstruktur
-Sidan kommer behöva följande sidor
+Sidan kommer inte ha så många undersidor, för att få en lättnavigerad sida kommer det bara finnas 3–4 undersidor. Sidan kommer behöva följande sidor:
 - Inloggningssida, sida som ger en enkel registrering, inloggning och förklaring av sidan.
 - Redigeringssida, den huvudsakliga sidan där man kan skapa och redigera sitt CV.
 - Visningssida, en sida som man enkelt kan länka till för att referera till sitt CV, denna sida måste även ha en gedigen utskrifts funktion.
@@ -77,13 +85,14 @@ All kod kommentering skall vara på engelska. Kommentera kod ofta, kortfattat oc
 - - 3.3 Sidebar
 
 Här är en lista över några speciella saker att tänka på vid kommentering av vissa språk.
+
 #### HTML 
 - Avsluta samtliga stängande taggar på större sektioner, över fem rader, med en kommentar, t.ex.
-``` <header class="main-header">
+``` <header class=“main-header”>
     </header>
     <!-- /.main-header -->
 ```
-Vid användning av [Emmett]() kan kodsnutten "|c" användas för att automatiskt skapa en slutkommentar, t.ex. ```header.main-header|c```.
+Vid användning av [Emmett]() kan kodsnutten “|c” användas för att automatiskt skapa en slutkommentar, t.ex. ```header.main-header|c```.
 
 #### SCSS
 
@@ -95,10 +104,12 @@ Delfiler som ska importeras till huvudfiler skall ha ett understreck i början a
 All utvecklingskod i SASS eller JavaScript skall ligga i ```/dev/``` mappen, den skall därefter kompileras ut till en undermapp root direktivet, se nedan för en lista över specifika filtyper över hur de skall hanteras.
 
 Använd korta beskrivande namn för undermappar. Korta namn ger mindre risk att stava fel, kortare länkar och lätt överskådlig mappstruktur.
+
 #### CSS
  - Utveckling i CSS sker i SASS, utvecklings kod skall ligga i ```/dev/sass/``` för att sedan kompileras ut till ```/css/```
+
 #### JavaScript
-- Utvecklingskod skall ligga i ```/dev/js/``` för att sedan minfieras ut till ```/js/```med tillägget ".min" innan filbeteckning, t.ex. ```jquery.min.js``` 
+- Utvecklingskod skall ligga i ```/dev/js/``` för att sedan minfieras ut till ```/js/```med tillägget “.min” innan filbeteckning, t.ex. ```jquery.min.js``` 
 - Vid manuell minifiering rekommenderas även att jsHint eller jsLint köras på koden för att analysera eventuella fel, detta underlättar testningen av koden.
 
 ### Tabbning
