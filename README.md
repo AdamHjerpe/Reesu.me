@@ -49,12 +49,12 @@ Moderna tydliga Sans-serifa typsnitt som förmedlar en modern känsla.
 - [ ] Planera ut vilka undersidor som behövs och vilket innehåll de skall ha.
 - [ ] Gör typgrafiska Mallar för slutrendering av CV.
 - [ ] Gör HTML Mockups för undersidor.
--- [Pågående] Redigeringsida
--- [ ] Inloggningssida
--- [ ] Visningssida
+- - [Pågående] Redigeringsida
+- - [ ] Inloggningssida
+- - [ ] Visningssida
 
 ### Sidstruktur
-Sidan kommer inte ha så många undersidor, för att få en lättnavigerad sida kommer det bara finnas 3-4 undersidor. Sidan kommer behöva följande sidor:
+Sidan kommer inte ha så många undersidor, för att få en lättnavigerad sida kommer det bara finnas 3–4 undersidor. Sidan kommer behöva följande sidor:
 - Inloggningssida, sida som ger en enkel registrering, inloggning och förklaring av sidan.
 - Redigeringssida, den huvudsakliga sidan där man kan skapa och redigera sitt CV.
 - Visningssida, en sida som man enkelt kan länka till för att referera till sitt CV, denna sida måste även ha en gedigen utskrifts funktion.
@@ -88,11 +88,11 @@ Här är en lista över några speciella saker att tänka på vid kommentering a
 
 #### HTML 
 - Avsluta samtliga stängande taggar på större sektioner, över fem rader, med en kommentar, t.ex.
-``` <header class="main-header">
+``` <header class=“main-header”>
     </header>
     <!-- /.main-header -->
 ```
-Vid användning av [Emmett]() kan kodsnutten "|c" användas för att automatiskt skapa en slutkommentar, t.ex. ```header.main-header|c```.
+Vid användning av [Emmett]() kan kodsnutten “|c” användas för att automatiskt skapa en slutkommentar, t.ex. ```header.main-header|c```.
 
 #### SCSS
 
@@ -109,7 +109,7 @@ Använd korta beskrivande namn för undermappar. Korta namn ger mindre risk att 
  - Utveckling i CSS sker i SASS, utvecklings kod skall ligga i ```/dev/sass/``` för att sedan kompileras ut till ```/css/```
 
 #### JavaScript
-- Utvecklingskod skall ligga i ```/dev/js/``` för att sedan minfieras ut till ```/js/```med tillägget ".min" innan filbeteckning, t.ex. ```jquery.min.js``` 
+- Utvecklingskod skall ligga i ```/dev/js/``` för att sedan minfieras ut till ```/js/```med tillägget “.min” innan filbeteckning, t.ex. ```jquery.min.js``` 
 - Vid manuell minifiering rekommenderas även att jsHint eller jsLint köras på koden för att analysera eventuella fel, detta underlättar testningen av koden.
 
 ### Tabbning
