@@ -58,9 +58,9 @@
   // Facebook Blue:;
     // $head-col: #4660a2;
   // Linus Lilja Teal: 
-    $head-col: #10D080;
+    // $head-col: #10D080;
   // Random Red
-    // $head-col: #C14444;
+   $head-col: #C14444;
 
 // Background color
   $bg-col: #dddddd;
@@ -89,7 +89,7 @@
 // 3. Layout //
 ///////////////
 
-body {
+body { 
   background: $bg-col;
   // background: desaturate(lighten($head-col, 5%), 5%);
   color: $font-col;
