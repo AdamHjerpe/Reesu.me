@@ -8,8 +8,8 @@ define('CONFIM_KEY', '?cGkJHHf*<$[w9`bn|kf`J^$;58I#xJq>fi=rg3sw1_!m@l$<]x{|=mP~#
 define('COOKIE_KEY', '*47EY&u?m_n~)}j$>C17A<+V|%q$*./Ezg0+h#4oC2IPi5zcn@DoJm</Ehq(<?+o');
 
 # Connect to DB
-$connect = @mysql_connect('edge-104838.mysql.binero.se', '104838_qu36347', 'b4k4k4k4') or die("Error, could not connect to DB. Try again later");
-mysql_select_db('104838-edge', $connect);
+$connect = @mysql_connect('db-host', 'db-user', 'db-pass') or die("Error, could not connect to DB. Try again later");
+mysql_select_db('db-name', $connect);
 
 # Functions
 function check_email($email) { if (!preg_match('/^[-A-Za-z0-9_.]+[@][A-Za-z0-9_-]+([.][A-Za-z0-9_-]+)*[.][A-Za-z]{2,6}$/', $email)) return false; return $email;}
