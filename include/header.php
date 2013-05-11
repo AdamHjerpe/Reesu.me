@@ -130,8 +130,8 @@ Crew at Reesume';
   
   <link rel="canonical" href="http://reesu.me/" />
   <link rel="image_src" href="http://reesu.me/asset/img/img_src.png" />
-	<link rel="stylesheet" href="assets/css/style.css" media="all" type="text/css" />
-	
+	<link rel="stylesheet" href="dev/css/style.css" media="all" type="text/css" />
+
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
