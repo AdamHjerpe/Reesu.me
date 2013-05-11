@@ -8,8 +8,7 @@ define('CONFIM_KEY', '?cGkJHHf*<$[w9`bn|kf`J^$;58I#xJq>fi=rg3sw1_!m@l$<]x{|=mP~#
 define('COOKIE_KEY', '*47EY&u?m_n~)}j$>C17A<+V|%q$*./Ezg0+h#4oC2IPi5zcn@DoJm</Ehq(<?+o');
 
 # Connect to DB
-$connect = @mysql_connect('db-host', 'db-user', 'db-pass') or die("Error, could not connect to DB. Try again later");
-mysql_select_db('db-name', $connect);
+
 
 # Functions
 function check_email($email) { if (!preg_match('/^[-A-Za-z0-9_.]+[@][A-Za-z0-9_-]+([.][A-Za-z0-9_-]+)*[.][A-Za-z]{2,6}$/', $email)) return false; return $email;}
@@ -37,8 +36,8 @@ function get_username() { return mres($_SESSION['username']); }
 function get_name() { return mres($_SESSION['name']); }
 function admin() { if (auth()) { $sql = sql("SELECT admin FROM members WHERE id='".get_id()."' LIMIT 1"); if ($sql['admin'] == 1) { return true; } } return false; }
 
-function get_header() { if (file_exists("include/header.php")) { require ("include/header.php"); } }
-function get_footer() { if (file_exists("include/footer.php")) { require ("include/footer.php"); } }
+function get_header() { if (file_exists("inc/header.php")) { require ("inc/header.php"); } }
+function get_footer() { if (file_exists("inc/footer.php")) { require ("inc/footer.php"); } }
 function get_page() { 
 	if (isset($_GET['p']))
 	{
