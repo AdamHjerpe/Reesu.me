@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `members` (
   `picture` varchar(140) CHARACTER SET utf8 NOT NULL DEFAULT 'no-image.png',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`,`email`,`confirm_key`,`cookie_key`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci AUTO_INCREMENT=11 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci AUTO_INCREMENT=0 ;
 
 CREATE TABLE IF NOT EXISTS `pages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -21,4 +21,14 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `pageident` varchar(60) NOT NULL,
   `text` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
+
+CREATE TABLE IF NOT EXISTS `notifications` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `members_to` int(11) NOT NULL,
+  `members_from` int(11) NOT NULL,
+  `text` text NOT NULL,
+  `viewed` int(1) NOT NULL DEFAULT '0',
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
