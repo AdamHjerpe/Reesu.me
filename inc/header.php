@@ -1,5 +1,8 @@
 <?php
+session_start();
 if (auth()) {}
+
+# Sign in
 elseif (isset($_POST['signin']) && !empty($_POST['username']) && !empty($_POST['password'])) {
 	$sql = mysql_query("SELECT `id`, `name`, `username`, `password`, `active` FROM `members` WHERE `username`='".mres($_POST['username'])."' OR `email`='".mres($_POST['username'])."' LIMIT 1") or die(mysql_error());
 	if (mysql_num_rows($sql)>0) {
@@ -27,6 +30,8 @@ elseif (isset($_POST['signin']) && !empty($_POST['username']) && !empty($_POST['
 	}
 	relocate('/');		
 }
+
+# Remember me
 elseif(!empty($_COOKIE['remember_me'])) {
 	$row = sql("SELECT id, name, username FROM members WHERE `cookie_key` = '".mres($_COOKIE['remember_me'])."' AND `active`= 1 LIMIT 1");
 	if($row) {
@@ -35,6 +40,8 @@ elseif(!empty($_COOKIE['remember_me'])) {
 		$_SESSION['name'] = $row['name'];		
 	}
 }
+
+#Sign up
 elseif (isset($_POST['signup']) && !empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['password'])) {
 	$username = mres($_POST['username']);
 	$email = mres($_POST['email']);
@@ -78,6 +85,8 @@ Crew at Reesume';
 		relocate("/");
 	}
 }
+
+# Recover password
 elseif (isset($_POST['recover']) && !empty($_POST['username'])) {
 	$sql = mysql_query("SELECT `id`, `username`, `email` FROM `members` WHERE `username`='".mres($_POST['username'])."' OR `email`='".mres($_POST['username'])."' LIMIT 1") or die(mysql_error());
 	if (mysql_num_rows($sql)>0) {
@@ -86,7 +95,6 @@ elseif (isset($_POST['recover']) && !empty($_POST['username'])) {
 		$username = $row['username'];
 		$email = $row['email'];
 		mysql_query("UPDATE members SET password='".safepass($username, $newpass)."' WHERE id='".$row['id']."' LIMIT 1") or die(mysql_error());
-		mysql_query("INSERT INTO notifications (members_to, members_from, text) VALUES ('".$row['id']."', '0', 'Your password has been recovered, check your email for more information')") or die(mysql_error());
 		$subject = 'Recover your password';
 		$message = 
 'Dear member, you have requested a new password.
@@ -105,7 +113,7 @@ Crew at Reesume';
 			'X-Mailer: PHP/' . phpversion();
 
 		mail($email, $subject, $message, $headers);
-		relocate("/");
+		relocate("/#$newpass"); #Just for now
 	}
 }
 ?>
@@ -150,17 +158,17 @@ Crew at Reesume';
 				if (auth()) { 
 			?>
 			<ul>
-				<li><a href="<?php echo BASEURL; ?><?php get_username(); ?>/new-resume/">New resume</a></li>
-				<li><a href="<?php echo BASEURL; ?><?php get_username(); ?>/my-resumes/">My resumes</a></li>
+			<?php
+				} if (admin()) {
+			?>
+				<li><a href="<?php echo BASEURL; ?>admin/start/">Admin</a></li>
+			<?php
+				} if (auth()) {
+			?>
+				<li><a href="<?php echo BASEURL; ?><?php echo get_username(); ?>/new-resume/">New resume</a></li>
+				<li><a href="<?php echo BASEURL; ?><?php echo get_username(); ?>/my-resumes/">My resumes</a></li>
 				<li><a href="<?php echo BASEURL; ?>go-pro/">Go pro <span>$1</span></a></li>
 				<li><a href="<?php echo BASEURL; ?>logout">Disconnect</a></li>
-				<?php
-					# Admin navigation
-					} if (admin()) { 
-				?>
-				<li><a href="<?php echo BASEURL; ?>admin/users/">Users</a></li>
-				<li><a href="<?php echo BASEURL; ?>admin/statistics/">Statistics</a></li>
-				<li><a href="<?php echo BASEURL; ?>admin/manage-ads/">Manage Ads</a></li>
 			</ul>
 			<?php 
 				# Guest navigation
@@ -175,7 +183,24 @@ Crew at Reesume';
 		</li>
 	</ul>
 
-	<div class="notification">
-		<p><!--Don't forget to save your resume--><a href="#sign-up">Sign up</a> and create your own resume for free!</p>
-	</div>
+	<?php
+		# Notifications
+		if (auth()) {
+			$sql = mysql_query("SELECT * FROM notifications WHERE members_to='".get_id()."' ORDER BY viewed ASC LIMIT 1") or die(mysql_error());
+			if (mysql_num_rows($sql)>0) {
+				while ($row = mysql_fetch_assoc($sql)) {
+					echo '<div class="notification"><p>'.$row['text'].'</p></div>';
+				}
+			}
+
+			else {
+				echo '<div class="notification"><p>You have no new notifications</p></div>';
+			}
+
+		}
+			
+		else {
+			echo '<div class="notification"><p><a href="'.BASEURL.'">Sign up</a> and create your own resume for free!</p></div>';
+		}
+	?>
 </section>

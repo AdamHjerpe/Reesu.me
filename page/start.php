@@ -6,6 +6,34 @@
 	</header>
 
 	<section id="resume">
+		<article class="content">
+		<?php if (!auth()) { ?>
+			<h3>Sign up</h3>
+			<form action="" method="post" class="form">
+				<input type="text" name="username" value="" placeholder="Username" required />
+				<input type="email" name="email" value="" placeholder="Email" required />
+				<input type="password" name="password" value="" placeholder="Password" required />
+				
+				<input type="submit" name="signup" value="Sign up" />
+			</form>
+
+			<h3>Sign in</h3>
+			<form action="" method="post" class="form">
+				<input type="text" name="username" value="" placeholder="Username or Email" required />
+				<input type="password" name="password" value="" placeholder="Password" required />
+			
+				<input type="submit" name="signin" value="Sign in" /> 
+				<input type="checkbox" value="1" name="remember_me" /> <small>Remember</small>
+			</form>
+			
+			<h3>Recover account</h3>
+			<form action="" method="post" class="form">
+				<input type="text" name="username" value="" placeholder="Username or Email" required />
+				<input type="submit" name="recover" value="Recover" />
+			</form>
+		<?php } ?>
+		</article>
+
 		<article class="content edit">
 			<h3>Me</h3>
 

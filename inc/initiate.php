@@ -1,15 +1,17 @@
 <?php
-# Define site and salt
-define('BASEURL', 'http://reesu.me/');
-define('DOMAIN', '.reesu.me');
-define('SHA1_KEY', '1pQjau/:3mUQ6%5Z:`)!Yhq$.@*fz,+4X!d4(0V|u|myucjD:ObXg!Or1.YRgUy8');
-define('SHA512_KEY', 'AB4W{8 lob>ItU_*Gj^NKQH3Lyk_5j-*C]6R6+h|59|q<W#yuoA|Dsl%G_%6${q[');
-define('CONFIM_KEY', '?cGkJHHf*<$[w9`bn|kf`J^$;58I#xJq>fi=rg3sw1_!m@l$<]x{|=mP~#(GuB+L');
-define('COOKIE_KEY', '*47EY&u?m_n~)}j$>C17A<+V|%q$*./Ezg0+h#4oC2IPi5zcn@DoJm</Ehq(<?+o');
+# Define site URL and DOMAIN
+define('BASEURL', 	 'http://reesu.me/');
+define('DOMAIN', 	 '.reesu.me');
+
+# Define salt's (https://api.wordpress.org/secret-key/1.1/salt/)
+define('SHA1_KEY', 	 'p9Q|?VXKHe&gjk&nA-P;ZQ%2)f$Y+eyd KRLh|/sL*-1SAu@zZz_Zup3Kzh>Kl<+');
+define('SHA512_KEY', 't-0|:,rU.-::bvtu.*(10st$]EaMeLGMG$JNHc|U{aZvK)uG/Z IR u@Ucb`uuId');
+define('CONFIM_KEY', 'K(,[Z2feD~q8jX6BYBNb+v-tZiytB7yD~HPZu&],W_$8=Q q,D?[N[[,(#+_$nBO');
+define('COOKIE_KEY', 'm2QDzM,h+w7B#Hm*g>l9^aao)ypPr6gX,FQ,zjA)Z8XX/;M[>h*V%GrX>VA9R2SD');
 
 # Connect to DB
-$connect = @mysql_connect('---', '---', '---') or die("Kunde inte ansluta till SQL-servern. (Hög belastning...)");
-mysql_select_db('---', $connect);
+$connect = @mysql_connect('reesume-134355.mysql.binero.se', '134355_jk78569', 'B4kishK4kish') or die("Kunde inte ansluta till SQL-servern. (Hög belastning...)");
+mysql_select_db('134355-reesume', $connect);
 
 # Functions
 function check_email($email) { if (!preg_match('/^[-A-Za-z0-9_.]+[@][A-Za-z0-9_-]+([.][A-Za-z0-9_-]+)*[.][A-Za-z]{2,6}$/', $email)) return false; return $email;}
