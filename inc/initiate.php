@@ -8,13 +8,14 @@ define('CONFIM_KEY', '?cGkJHHf*<$[w9`bn|kf`J^$;58I#xJq>fi=rg3sw1_!m@l$<]x{|=mP~#
 define('COOKIE_KEY', '*47EY&u?m_n~)}j$>C17A<+V|%q$*./Ezg0+h#4oC2IPi5zcn@DoJm</Ehq(<?+o');
 
 # Connect to DB
-
+$connect = @mysql_connect('---', '---', '---') or die("Kunde inte ansluta till SQL-servern. (Hög belastning...)");
+mysql_select_db('---', $connect);
 
 # Functions
 function check_email($email) { if (!preg_match('/^[-A-Za-z0-9_.]+[@][A-Za-z0-9_-]+([.][A-Za-z0-9_-]+)*[.][A-Za-z]{2,6}$/', $email)) return false; return $email;}
 
 function get_randomhash($length=10) { return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),0,$length);}
-function get_confirmkey() {	return sha1(md5(date('Y-m-d H:i:s')).get_randomhash().CONFIM_KEY);}
+function get_confirmkey() {	return sha1(md5(date('Y-m-d H:i:s')).get_randomhash().CONFIM_KEY); }
 function get_cookiekey($username) { return sha1(COOKIE_KEY.$username); }
 
 function mres($value) { return mysql_real_escape_string($value);}	
@@ -39,36 +40,28 @@ function admin() { if (auth()) { $sql = sql("SELECT admin FROM members WHERE id=
 function get_header() { if (file_exists("inc/header.php")) { require ("inc/header.php"); } }
 function get_footer() { if (file_exists("inc/footer.php")) { require ("inc/footer.php"); } }
 function get_page() { 
-	if (isset($_GET['p']))
-	{
+	if (isset($_GET['p'])) {
 		$_GET['p'] = mres($_GET['p']);
-		if (file_exists("page/".$_GET['p'].".php"))
-		{
+		if (file_exists("page/".$_GET['p'].".php")) {
 			include ("page/".$_GET['p'].".php");
-		}
-		else {
+		} else {
 			include ("page/404.php");
 		}
-	}
-	else {
+	} else {
 		include ("page/start.php");
 	}
 }
 
 function get_adminpage() { 
 	if (!admin()) { relocate("/404");}
-	if (isset($_GET['u']))
-	{
+	if (isset($_GET['u'])) {
 		$_GET['u'] = mres($_GET['u']);
-		if (file_exists("page/admin/".$_GET['u'].".php"))
-		{
+		if (file_exists("page/admin/".$_GET['u'].".php")) {
 			include ("page/admin/".$_GET['u'].".php");
-		}
-		else {
+		} else {
 			include ("page/admin/404.php");
 		}
-	}
-	else {
+	} else {
 		include ("page/admin/start.php");
 	}
 }

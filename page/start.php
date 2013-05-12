@@ -1,12 +1,8 @@
 <section id="paper">
-	<header>
+	<header class="edit">
 		<hgroup>
 			<h1>Resume</h1>
 		</hgroup>
-		
-		<figure class="me">
-			<span><a href="http://new-standards.se/linus/#contact">Contact</a></span>
-		</figure>
 	</header>
 
 	<section id="resume">

@@ -106,7 +106,6 @@ Crew at Reesume';
 
 		mail($email, $subject, $message, $headers);
 		relocate("/");
-
 	}
 }
 ?>
@@ -114,7 +113,8 @@ Crew at Reesume';
 <html>
 <head>
   <title>Reesume - Create your beautiful resume within minitues, free!</title>
-
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta http-equiv="content-language" content="ENG" /> 
   <meta http-equiv="imagetoolbar" content="false" />
@@ -130,7 +130,7 @@ Crew at Reesume';
   
   <link rel="canonical" href="http://reesu.me/" />
   <link rel="image_src" href="http://reesu.me/asset/img/img_src.png" />
-	<link rel="stylesheet" href="dev/css/style.css" media="all" type="text/css" />
+	<link rel="stylesheet" href="<?php echo BASEURL; ?>dev/css/style.css?<?php echo time(); ?>" media="all" type="text/css" />
 
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -139,7 +139,7 @@ Crew at Reesume';
 <body>
 <!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 <section id="headings">
-	<a class="logo" href="./">
+	<a class="logo" href="<?php echo BASEURL; ?>">
 		<h1>R<span>eesume - Create your beautiful resume within minitues, free!</span></h1>
 	</a>
 
@@ -150,35 +150,32 @@ Crew at Reesume';
 				if (auth()) { 
 			?>
 			<ul>
-				<?php } 
+				<li><a href="<?php echo BASEURL; ?><?php get_username(); ?>/new-resume/">New resume</a></li>
+				<li><a href="<?php echo BASEURL; ?><?php get_username(); ?>/my-resumes/">My resumes</a></li>
+				<li><a href="<?php echo BASEURL; ?>go-pro/">Go pro <span>$1</span></a></li>
+				<li><a href="<?php echo BASEURL; ?>logout">Disconnect</a></li>
+				<?php
 					# Admin navigation
-					elseif (admin()) { 
+					} if (admin()) { 
 				?>
-				<li><a href="#">Users</a></li>
-				<li><a href="#">Statistics</a></li>
-				<li><a href="#">Manage Ads</a></li>
-				<?php 
-					} 
-				?>
-				<li><a href="#">New resume</a></li>
-				<li><a href="#">My resumes</a></li>
-				<li><a href="#">Go pro <span>$1</span></a></li>
-				<li><a href="#">Disconnect</a></li>
+				<li><a href="<?php echo BASEURL; ?>admin/users/">Users</a></li>
+				<li><a href="<?php echo BASEURL; ?>admin/statistics/">Statistics</a></li>
+				<li><a href="<?php echo BASEURL; ?>admin/manage-ads/">Manage Ads</a></li>
 			</ul>
 			<?php 
 				# Guest navigation
 				} else { 
 			?>
 			<ul>
-				<li><a href="#">Sign in</a></li>
-				<li><a href="#">Sign up</a></li>
-				<li><a href="#">Reesume?</a></li>
+				<li><a href="<?php echo BASEURL; ?>#sign-in">Sign in</a></li>
+				<li><a href="<?php echo BASEURL; ?>#sign-up">Sign up</a></li>
+				<li><a href="<?php echo BASEURL; ?>reesume/">Reesume?</a></li>
 			</ul>
 			<?php } ?>
 		</li>
 	</ul>
 
 	<div class="notification">
-		<p><!--Don't forget to save your resume--><!--<a href="#">Sign up</a> and create your own resume for free!--><strong>Reesume</strong> is a school project with a friend!</p>
+		<p><!--Don't forget to save your resume--><a href="#sign-up">Sign up</a> and create your own resume for free!</p>
 	</div>
 </section>
