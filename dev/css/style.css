@@ -53,21 +53,20 @@ ul#nav li > ul li a > span { color: #D06868; font-size: .6em; font-weight: 500; 
 #headings:after, header:after, #paper:after { content: ''; display: block; clear: both; }
 
 /* First-page */
-div.main-content { max-width: 480px; width: 100%; float: left; }
 div.main-content hgroup > h1 { text-indent: 0px; color: #FFF; display: block; font-size: 5.5em; line-height: 1; width: 100%; }
 div.main-content hgroup > h3 { color: #FFF; display: block; font-weight: 400; font-style: italic; }
 
-aside#main-sign-up { padding: 20px; max-width: 260px; width: 100%; float: right; background: #FAFAFA; }
-aside#main-sign-up h3 { font-weight: 400; }
-aside#main-sign-up h3 > span { font-weight: 200; font-style: italic; }
-aside#main-sign-up form > input { padding: 8px; color: #949796; border: 2px #949796 solid; background: #FFF; display: block; font-size: 1em; width: calc(100% - 18px); margin-top: .5em; }
-aside#main-sign-up form > input[type=submit] { background: #10D080; color: #FFF; width: 100%; border: 0px; }
-aside#main-sign-up form > input[type=submit]:hover { color: rgba(255,255,255, .8); _color: #EEE; }
-aside#main-sign-up form > ul li { display: inline-block; list-style-type: none; line-height: 2; }
-aside#main-sign-up form > ul li a, aside#main-sign-up form ul li a:visited { color: #4D4D4D; font-size: .8em; }
-aside#main-sign-up form > ul li a:hover { text-decoration: underline; }
-aside#main-sign-up form > ul li:first-of-type { float: left; }
-aside#main-sign-up form > ul li:last-of-type { float: right; }
+aside.main-sign-up { padding: 20px; max-width: 260px; width: 100%; background: #FAFAFA; }
+aside.main-sign-up h3 { font-weight: 400; }
+aside.main-sign-up h3 > span { font-weight: 200; font-style: italic; }
+aside.main-sign-up form > input { padding: 8px; color: #949796; border: 2px #949796 solid; background: #FFF; display: block; font-size: 1em; width: calc(100% - 18px); margin-top: .5em; }
+aside.main-sign-up form > input[type=submit] { background: #10D080; color: #FFF; width: 100%; border: 0px; }
+aside.main-sign-up form > input[type=submit]:hover { color: rgba(255,255,255, .8); _color: #EEE; }
+aside.main-sign-up form > ul li { display: inline-block; list-style-type: none; line-height: 2; }
+aside.main-sign-up form > ul li a, aside#main-sign-up form ul li a:visited { color: #4D4D4D; font-size: .8em; }
+aside.main-sign-up form > ul li a:hover { text-decoration: underline; }
+aside.main-sign-up form > ul li:first-of-type { float: left; }
+aside.main-sign-up form > ul li:last-of-type { float: right; }
 
 /* Placeholder Color */
 ::-webkit-input-placeholder { color: #949796; }
@@ -96,14 +95,83 @@ hgroup > h1 { text-indent: 20px; color: #383838; font-family: "Dancing Script", 
 .my-resumes-thumb iframe { width: 760px; height: 1020px; overflow-y: hidden; border: 0; transform: scale(0.215); -webkit-transform: scale(0.220); -o-transform: scale(0.215); -ms-transform: scale(0.215); -moz-transform: scale(0.215); transform-origin: top center; -webkit-transform-origin: top center; -o-transform-origin: top center; -ms-transform-origin: top center; -moz-transform-origin: top center; background: #fff; }
 /* End Resume */
 
-/* Responsiveness */
-@media (max-width: 760px) { #paper { width: 100%; } } /* Hack for Resume preview */
-@media (max-width: 759px) { #paper { width: 80%; } } /* Hack for Resume preview */
 
-@media (max-width: 640px) { 
-	figure.me { top: -200%; left: -200%; }
-	hgroup > h1 { font-size: 3.3em; }
-	#headings { width: calc(80% + 30px); } 
-	#paper { padding: 15px; }
-	.notification { display: none; }
+aside#sidebar > .widget-area > h2 { 
+  font-style: normal; font-weight: 400; background: #323332; font-size: 1em; text-indent: 20px; margin: -20px -20px 20px -20px; /* Positioning hack */ height: 50px; line-height: 50px; color: #FFF; text-transform: uppercase;
+}
+
+#pagewrap { max-width: 800px; margin: 50px auto; }
+#pagewrap:after { content: ''; display: block; clear: both; }
+
+#content { width: 480px; float: left; }
+#sidebar { width: 300px; float: right; }
+
+#content > article > h1 { font-style: normal; font-weight: 400; background: #323332; font-size: 1em; text-indent: 20px; margin: 0 0 20px 0; height: 50px; line-height: 50px; color: #FFF; text-transform: uppercase; }
+#content > article { background: #FFF; max-width: 480px; margin-bottom: 20px; }
+#content > article > a > img { width: 100%; height: auto; }
+#content > article:first-of-type { min-height: 300px; }
+aside#sidebar > .widget-area:first-of-type { min-height: 260px; }
+#content > article:last-of-type { min-height: 430px; }
+
+#sidebar > .widget-area { background: #FFF; max-width: 260px; padding: 20px; margin-bottom: 20px; }
+#sidebar > .widget-area:last-of-type { min-height: 390px; }
+
+.profile, .jobs { position: relative; }
+.profile > img { -moz-border-radius: 50px; border-radius: 50px; width: 100px; margin-left: calc(50% - 50px); margin-top: 20px; }
+.profile > h3 { text-align: center; font-size: 1.7em; font-weight: 400; }
+.get-started, .load-jobs { background: #10D080; color: #FFF; text-decoration: none; width: calc(100% - 40px); text-align: center; text-transform: uppercase; height: 50px; line-height: 50px; display: inline-block; position: absolute; bottom: 20px; }
+.get-started:hover, .load-jobs:hover { text-decoration: underline; }
+
+.jobs h2 a { float: right; margin-right: 20px; margin-top: 2px; }
+
+.job-list-view { margin-bottom: 10px; line-height: 1.3; }
+.job-list-view a, .job-list-view a:visited { color: #10D080; font-size: 1.25em; font-weight: 600; }
+.job-list-view a:hover { text-decoration: underline; }
+.job-list-view p > a, .job-list-view p > a:visited { color: #4D4D4D; font-weight: .65em; font-weight: 400; }
+.job-list-view p { font-size: .65em; }
+.job-list-view:last-of-type { padding-bottom: 50px; }
+
+.selected-job { position: relative; }
+.selected-job h2 { height: 50px; background: #10D080; line-height: 50px; color: #FFF; padding: 0 20px; display: inline-block; font-size: 1em; font-weight: 400; position: absolute; top: 20px; left: 20px; z-index: 100000; text-transform: uppercase; }
+.google-maps { width: 100%; overflow: hidden; display: block; }
+.selected-job-link { padding: 20px; }
+.selected-job-link > a, .selected-job-link > a:visited { color: #10D080; font-size: 1.4em; font-weight: 600; line-height: 1.3; }
+.selected-job-link > a:hover, .selected-job-link p > a:hover { text-decoration: underline; }
+.selected-job-link p > a, .selected-job-link p > a:visited { color: #4D4D4D; font-weight: .6em; font-weight: 400; }
+.selected-job-link p { font-weight: .6em; line-height: 2; }
+
+/* Responsiveness */
+
+/* for 980px or less */
+@media screen and (max-width: 980px) {
+  #pagewrap { max-width: 800px; width: 90%; }
+  #content { width: 60%; }
+  #sidebar { width: calc(40% - 20px); }
+  .job-list-view a, .job-list-view a:visited { font-size: 1.1em; }
+}
+
+/* Hack for Resume preview */
+@media (max-width: 760px) { #paper { width: 100%; } }
+@media (max-width: 759px) { #paper { width: 80%; } } 
+
+/* for 640px or less */
+@media screen and (max-width: 640px) {
+  figure.me { top: -200%; left: -200%; }
+  hgroup > h1 { font-size: 3.3em; }
+  #headings { width: calc(80% + 30px); } 
+  #paper { padding: 15px; }
+  .notification { display: none; }
+  .job-list-view a, .job-list-view a:visited { font-size: 1.25em; }
+
+  #content > article { max-width: 600px; }
+  #content { width: auto; float: none; }
+  #sidebar { width: auto; float: none; }
+  #sidebar > .widget-area { float: left; width: 40%; }
+  #sidebar > .widget-area:last-of-type { float: right; }
+}
+
+/* for 480px or less */
+@media screen and (max-width: 480px) {
+  #sidebar > .widget-area { float: none; width: auto; max-width: 440px; }
+  #sidebar > .widget-area:last-of-type { float: none; }
 }

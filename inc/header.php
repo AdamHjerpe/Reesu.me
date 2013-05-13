@@ -58,7 +58,7 @@ elseif (isset($_POST['signup']) && !empty($_POST['username']) && !empty($_POST['
 	}
 	if (!$_msg) {
 		$confirm_key = get_confirmkey();
-		$ipaddress = get_ipaddress();
+		$ipaddress = get_ipadress();
 		$password = mres($_POST['password']);
 		$safepass = safepass($username, $password);
 		mysql_query("INSERT INTO members (username, password, email, confirm_key, name, ipaddress, lastseen) VALUES ('".$username."', '".$safepass."', '".$email."', '".$confirm_key."', '".$username."', '".$ipaddress."', '".$today."')") or die(mysql_error());
@@ -122,11 +122,10 @@ Crew at Reesume';
 <head>
   <title>Reesume - Create your beautiful resume within minitues, free!</title>
 	
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta http-equiv="content-language" content="ENG" /> 
   <meta http-equiv="imagetoolbar" content="false" />
-  <meta name="viewport" content="width=device-width">
   <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1 user-scalable=no,width = 320" /> 
   <meta name="robots" content="index, nofollow" />
   <meta name="rating" content="general" />
@@ -138,7 +137,7 @@ Crew at Reesume';
   
   <link rel="canonical" href="http://reesu.me/" />
   <link rel="image_src" href="http://reesu.me/asset/img/img_src.png" />
-	<link rel="stylesheet" href="<?php echo BASEURL; ?>dev/css/style.css" media="all" type="text/css" />
+  <link rel="stylesheet" href="<?php echo BASEURL; ?>dev/css/style.css" media="all" type="text/css" />
 
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -158,16 +157,7 @@ Crew at Reesume';
 				if (auth()) { 
 			?>
 			<ul>
-			<?php
-				} if (admin()) {
-			?>
-				<li><a href="<?php echo BASEURL; ?>admin/">Admin</a></li>
-			<?php
-				} if (auth()) {
-			?>
-				<li><a href="<?php echo BASEURL; ?><?php echo get_username(); ?>/new-resume/">New resume</a></li>
-				<li><a href="<?php echo BASEURL; ?><?php echo get_username(); ?>/my-resumes/">My resumes</a></li>
-				<li><a href="<?php echo BASEURL; ?>go-pro/">Go pro <span>$1</span></a></li>
+				<!--<li><a href="<?php echo BASEURL; ?>go-pro/">Go pro <span>$1</span></a></li>-->
 				<li><a href="<?php echo BASEURL; ?>logout">Disconnect</a></li>
 			</ul>
 			<?php 

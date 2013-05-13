@@ -1,7 +1,3 @@
-<?php
-# Get header
-get_head();
-?>
 <section id="paper">
 	<header>
 		<hgroup>
@@ -14,7 +10,3 @@ get_head();
 		<p>Head back to <a style="color: #333;" href="./">Reesu.me</a>.</p>
 	</srticle>
 </section>
-<?php
-# Get footer
-get_foot();
-?>

@@ -1,20 +1,26 @@
 <?php
-# Get header
-get_head();
-
 # Guest first-page
 if (!auth()) { 
 ?>
-<section id="main">
-	<div class="main-content">
+<div id="pagewrap">
+   <div id="content" class="main-content">
 		<hgroup>
 			<h1>Reesume</h1>
 			<h3>Create your own beautiful resume<br />within minutes, for free!</h3>
 		</hgroup>
 	</div><!-- ./ div.main-content -->
 
-	<aside id="main-sign-up">
-		<h3>Sign in</h3>
+	<aside id="sidebar" class="main-sign-up">
+		<h3>Sign up <span>at</span> Reesume</h3>
+
+		<form action="" method="post" class="form">
+			<input type="text" name="username" value="" placeholder="Username" required />
+			<input type="email" name="email" value="" placeholder="Email" required />
+			<input type="password" name="password" value="" placeholder="Password" required />
+				
+			<input type="submit" name="signup" value="SIGN UP" />
+		</form>
+		<!--<h3>Sign in</h3>
 
 		<form action="" method="post" class="form">
 			<input type="text" name="username" value="" placeholder="Username or Email" required />
@@ -27,7 +33,7 @@ if (!auth()) {
 				<li><a href="#">Recover Password?</a></li>
 				<li><a href="#">Sign up</a></li>
 			</ul>
-		</form>
+		</form>-->
 	</aside><!-- ./ aside#main-sign-up -->
 </section><!-- ./ section#main -->
 
@@ -56,25 +62,59 @@ if (!auth()) {
 if (auth()) {
 ?>
 
-<section id="main">
-	<div class="main-content">
-		
+	<div id="pagewrap">
+    <div id="content">
+      <article>
+        <h1>My resumes</h1>
+        <div class="latest-news">
+          
+        </div>
+      </article><!-- /Senaste nyheter -->
 
+      <article class="selected-job">
+      	<h2>Selected job</h2>
+        <section class="google-maps">
+          <iframe width="200" height="280" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Bob's+Youth+Hostel,+Burgwallen+Nieuwe+Zijde,+Amsterdam,+The+Netherlands&amp;aq=0&amp;oq=bobs+&amp;sll=52.370216,4.895168&amp;sspn=0.197041,0.490265&amp;g=Amsterdam,+The+Netherlands&amp;ie=UTF8&amp;hq=Bob's+Youth+Hostel,&amp;hnear=Burgwallen+Nieuwe+Zijde,+Centrum,+Amsterdam,+Government+of+Amsterdam,+North+Holland,+The+Netherlands&amp;t=m&amp;cid=5612531135574622436&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+   			</section>
+   			<div class="selected-job-link">
+   				<a href="#">Front-end web developer for agency in Amsterdam</a>
+   				<p>Posted by: <a href="#">Undutchables</a></p>
+   			</div>
+      </article>
+    </div><!-- /#content -->
 
-	</div><!-- ./ div.main-content -->
+    <aside id="sidebar">
+      <div class="widget-area profile">
+        <img src="<?php echo BASEURL; ?>dev/img/users/medium/profile-1.png" alt="liljalinus @ Reesume" />
+        <h3><?php echo get_name(); ?></h3>
 
-	<aside id="main-content-side">
-		
-		
+        <a href="<?php echo BASEURL; ?>settings/" class="get-started">Get started</a>
+      </div><!-- /Profile -->
 
-	</aside><!-- ./ aside#main-sign-up -->
-</section><!-- ./ section#main -->
+      <div class="widget-area jobs">
+        <h2>Latest jobs <a href="#"><img src="<?php echo BASEURL; ?>dev/img/icons/gear.png" alt="" /></a></h2>
+				
+				<div class="job-list-view">
+					<a href="#">Top designer for Spotify in Stockholm</a>
+					<p>Posted by: <a href="#">Spotify AB</a></p>
+				</div>
+
+				<div class="job-list-view">
+					<a href="#">Bredbandsbolaget behöver dig i Karlskoga!</a>
+					<p>Posted by: <a href="#">Uniflex</a></p>
+				</div>
+
+				<div class="job-list-view">
+					<a href="#">Tele2 söker folk till support i Karlskoga</a>
+					<p>Posted by: <a href="#">Uniflex</a></p>
+				</div>
+
+				<a href="#" class="load-jobs">Load jobs</a>
+      </div><!-- /Latest jobs -->
+    </aside>
+  </div>
 
 <?php } ?>
-<?php
-# Get footer
-get_foot();
-?>
 
 <!--
 # Resume view

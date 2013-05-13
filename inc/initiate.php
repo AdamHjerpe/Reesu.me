@@ -3,8 +3,8 @@
 $today = date("Y-m-d");
 
 # Define site URL and DOMAIN
-define('BASEURL', 	 'http://reesu.me/');
-define('DOMAIN', 	 '.reesu.me');
+define('BASEURL', 'http://reesu.me/');
+define('DOMAIN', '.reesu.me');
 
 # Define salt's (https://api.wordpress.org/secret-key/1.1/salt/)
 define('SHA1_KEY', 	 'p9Q|?VXKHe&gjk&nA-P;ZQ%2)f$Y+eyd KRLh|/sL*-1SAu@zZz_Zup3Kzh>Kl<+');
@@ -17,6 +17,9 @@ $connect = @mysql_connect('reesume-134355.mysql.binero.se', '134355_jk78569', 'B
 mysql_select_db('134355-reesume', $connect);
 
 # Functions
+function get_tag($tag,$xml) { preg_match_all('/<'.$tag.'>(.*)<\/'.$tag.'>$/imU',$xml,$match); return $match[1]; }
+function is_bot() { $botlist = array("Teoma", "alexa", "froogle", "Gigabot", "inktomi","looksmart", "URL_Spider_SQL", "Firefly", "NationalDirectory","Ask Jeeves", "TECNOSEEK", "InfoSeek", "WebFindBot", "girafabot","crawler", "www.galaxy.com", "Googlebot", "Scooter", "Slurp","msnbot", "appie", "FAST", "WebBug", "Spade", "ZyBorg", "rabaz","Baiduspider", "Feedfetcher-Google", "TechnoratiSnoop", "Rankivabot","Mediapartners-Google", "Sogou web spider", "WebAlta Crawler","TweetmemeBot","Butterfly","Twitturls","Me.dium","Twiceler"); foreach($botlist as $bot) { if(strpos($_SERVER['HTTP_USER_AGENT'],$bot)!==false) return true; } return false; }
+
 function check_email($email) { if (!preg_match('/^[-A-Za-z0-9_.]+[@][A-Za-z0-9_-]+([.][A-Za-z0-9_-]+)*[.][A-Za-z]{2,6}$/', $email)) return false; return $email;}
 
 function get_randomhash($length=10) { return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),0,$length);}
@@ -28,13 +31,13 @@ function mres_id($value) { return mres(ereg_replace("[^0-9]", "", $value));}
 function notags($value) { return str_replace(array("<",">",'"', "'"),array("&lt;","&gt;","&quot;","&#39;"),$value);}
 function safepass ($username, $password) { $password = sha1($password.SHA1_KEY); return hash('sha512', $username.$password.SHA512_KEY);}
 
-function relocate($url) { if ($url == -1) $url = $_SERVER['HTTP_REFERER'] ? $_SERVER['HTTP_REFERER'] : "/";Header("Location: $url");	die();}
+function relocate($url) { if ($url == -1) $url = $_SERVER['HTTP_REFERER'] ? $_SERVER['HTTP_REFERER'] : "/"; Header("Location: $url");	die(); }
 
-function caps($value){	return mb_strtoupper($value);}
-function uncaps($value){ return mb_strtolower($value);}
-function fcaps($value){	return ucfirst(uncaps($value));}
+function caps($value) {	return mb_strtoupper($value); }
+function uncaps($value) { return mb_strtolower($value); }
+function fcaps($value) {	return ucfirst(uncaps($value)); }
 
-function sql ($value) {	$sql = mysql_query($value) or die(mysql_error()); return mysql_fetch_assoc($sql);}
+function sql ($value) {	$sql = mysql_query($value) or die(mysql_error()); return mysql_fetch_assoc($sql); }
 
 function auth() { if (isset($_SESSION['id']) && isset($_SESSION['username']) &&  isset($_SESSION['name'])) { return true; } return false; }
 function get_id() { return mres_id($_SESSION['id']); }
@@ -57,8 +60,6 @@ function get_page() {
 	}
 }
 
-function get_adminhead() { if (file_exists("inc/admin-header.php")) { require ("inc/admin-header.php"); } }
-function get_adminfoot() { if (file_exists("inc/admin-footer.php")) { require ("inc/admin-footer.php"); } }
 function get_adminpage() { 
 	if (!admin()) { relocate("/404"); }
 	if (isset($_GET['u'])) {
@@ -115,6 +116,7 @@ function get_ipadress() {
 }
 
 function iplog() {
+	if(is_bot()) die();
 	$count = mysql_query("SELECT ipadress FROM `visits` WHERE `ipadress`='".get_ipadress()."' AND `date`='".date('Y-m-d')."' LIMIT 1") or die(mysql_error());
 	if(mysql_num_rows($count)==0) {
 		$ua = getBrowser();
@@ -249,5 +251,48 @@ function getBrowser() {
     'platform'  => $platform,
     'pattern'   => $pattern
   );
+}
+
+function online() {
+	if(is_bot()) die();
+	$stringIp = get_ipadress();
+	$intIp = ip2long($stringIp);
+
+	$inDB = mysql_query("SELECT 1 FROM online WHERE ip=".$intIp);
+
+	if(!mysql_num_rows($inDB)) {
+		if($_COOKIE['geoData']) {
+			list($city,$countryName,$countryAbbrev) = explode('|',mysql_real_escape_string(strip_tags($_COOKIE['geoData'])));
+		}
+		else {
+			$xml = file_get_contents('http://api.hostip.info/?ip='.$stringIp);
+			
+			$city = get_tag('gml:name',$xml);
+			$city = $city[1];
+			
+			$countryName = get_tag('countryName',$xml);
+			$countryName = $countryName[0];
+			
+			$countryAbbrev = get_tag('countryAbbrev',$xml);
+			$countryAbbrev = $countryAbbrev[0];
+
+			setcookie('geoData',$city.'|'.$countryName.'|'.$countryAbbrev, time()+60*60*24*30,'/');
+		}
+		$countryName = str_replace('(Unknown Country?)','UNKNOWN',$countryName);
+		
+		if (!$countryName) {
+			$countryName='UNKNOWN';
+			$countryAbbrev='XX';
+			$city='(Unknown City?)';
+		}
+		
+		mysql_query("INSERT INTO online (ip,city,country,countrycode) VALUES(".$intIp.",'".$city."','".$countryName."','".$countryAbbrev."')");
+	}
+
+	else {
+		mysql_query("UPDATE online SET dt=NOW() WHERE ip=".$intIp);
+	}
+
+	mysql_query("DELETE FROM online WHERE dt<SUBTIME(NOW(),'0 0:10:0')");
 }
 ?>

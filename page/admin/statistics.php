@@ -1,4 +1,6 @@
 <?php
+list($totalOnline) = mysql_fetch_array(mysql_query("SELECT COUNT(*) FROM online"));
+
 $today = date("Y-m-d");
 $yesterday = date("Y-m-d", strtotime("-1 days"));
 $thismonth = date("Y-m-d", strtotime("-1 months"));
@@ -16,8 +18,24 @@ $visits_qry = sql("SELECT COUNT(DISTINCT date) AS `count` FROM visits");
 $visits_average_day = $visits_total/$visits_qry['count'];
 ?>
 
+<h2>Overview</h2>
+
+<div class="pie">
+    <span data-colours='["#10D080", "#eeeeee"]' data-diameter="200">40/700</span><!-- Idag / Månad -->
+    <span data-colours='["#10D080", "#eeeeee"]' data-diameter="200">40/78</span><!-- Idag / Igår -->
+    <span data-colours='["#10D080", "#eeeeee"]' data-diameter="200">3/1000</span><!-- Medlemmar / Mål -->
+    <span data-colours='["#10D080", "#eeeeee"]' data-diameter="200">0/100</span><!-- Pro / Mål -->
+  </div>
+
+  <p>
+    <span class="line">40,78,23,44,122,80,45,94,32</span>
+  </p>
+
+
+<br />
 
 <p>
+	<strong>Online just nu</strong> <?php echo $totalOnline; ?><br />
 	<strong>Unika idag</strong> <?php echo $visits_today['count']; ?><br />
 	<strong>Unika igår</strong> <?php echo $visits_yesterday['count']; ?><br />
 	<strong>Unika denna månaden</strong> <?php echo $visits_month_row['count']; ?>
@@ -38,7 +56,7 @@ $visits_average_day = $visits_total/$visits_qry['count'];
 $browser_qry = mysql_query("SELECT DISTINCT browser FROM `visits` GROUP by `browser` ORDER BY COUNT(DISTINCT ipadress) DESC, `browser` ASC") or die(mysql_error());
 while ($browser_row = mysql_fetch_assoc($browser_qry)) {
 	$browser_row2 = sql("SELECT COUNT(DISTINCT ipadress) as `count` FROM `visits` WHERE `browser`='".$browser_row['browser']."'");
-	echo '<p>'.$browser_row['browser'].' - '.$browser_row2['count'].'</p>';							
+	echo '<p>'.$browser_row['browser'].''.$browser_row2['count'].'</p>';							
 }
 ?>
 		
