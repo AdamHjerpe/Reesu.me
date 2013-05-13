@@ -5,8 +5,8 @@ ob_start('compress_page');
 include("inc/initiate.php");
 mysql_query("SET NAMES 'utf8'") or die(mysql_error());
 mysql_query("SET CHARACTER SET 'utf8'") or die(mysql_error()); 	
-get_header();
+get_ipadress();
+iplog();
 get_page();
-get_footer();
 ob_end_flush();
 ?>

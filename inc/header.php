@@ -61,7 +61,7 @@ elseif (isset($_POST['signup']) && !empty($_POST['username']) && !empty($_POST['
 		$ipaddress = get_ipaddress();
 		$password = mres($_POST['password']);
 		$safepass = safepass($username, $password);
-		mysql_query("INSERT INTO members (username, password, email, confirm_key, name, ipaddress) VALUES ('".$username."', '".$safepass."', '".$email."', '".$confirm_key."', '".$username."', '".$ipaddress."')") or die(mysql_error());
+		mysql_query("INSERT INTO members (username, password, email, confirm_key, name, ipaddress, lastseen) VALUES ('".$username."', '".$safepass."', '".$email."', '".$confirm_key."', '".$username."', '".$ipaddress."', '".$today."')") or die(mysql_error());
 		mysql_query("INSERT INTO notifications (members_to, members_from, text) VALUES ('".$row['id']."', '0', 'Welcome to Reesume!')") or die(mysql_error());
 		$subject = 'Welcome to Reesume';
 		$message =
@@ -138,7 +138,7 @@ Crew at Reesume';
   
   <link rel="canonical" href="http://reesu.me/" />
   <link rel="image_src" href="http://reesu.me/asset/img/img_src.png" />
-	<link rel="stylesheet" href="<?php echo BASEURL; ?>dev/css/style.css?<?php echo time(); ?>" media="all" type="text/css" />
+	<link rel="stylesheet" href="<?php echo BASEURL; ?>dev/css/style.css" media="all" type="text/css" />
 
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -161,7 +161,7 @@ Crew at Reesume';
 			<?php
 				} if (admin()) {
 			?>
-				<li><a href="<?php echo BASEURL; ?>admin/start/">Admin</a></li>
+				<li><a href="<?php echo BASEURL; ?>admin/">Admin</a></li>
 			<?php
 				} if (auth()) {
 			?>
@@ -200,7 +200,7 @@ Crew at Reesume';
 		}
 			
 		else {
-			echo '<div class="notification"><p><a href="'.BASEURL.'">Sign up</a> and create your own resume for free!</p></div>';
+			echo '<div class="notification"><p><a href="'.BASEURL.'#sign-up">Sign up</a> and create your own resume for free!</p></div>';
 		}
 	?>
 </section>

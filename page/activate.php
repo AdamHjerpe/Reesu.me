@@ -1,4 +1,7 @@
 <?php
+# Get footer
+get_foot();
+
 if (isset($_GET['confirmkey'])) {
 	$sql = mysql_query("SELECT active FROM members WHERE `confirm_key`='".mres($_GET['confirmkey'])."'LIMIT 1") or die(mysql_error());
 	$row = mysql_fetch_assoc($sql);

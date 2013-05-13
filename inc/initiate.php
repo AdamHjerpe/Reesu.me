@@ -1,4 +1,7 @@
 <?php
+# Define time
+$today = date("Y-m-d");
+
 # Define site URL and DOMAIN
 define('BASEURL', 	 'http://reesu.me/');
 define('DOMAIN', 	 '.reesu.me');
@@ -39,8 +42,8 @@ function get_username() { return mres($_SESSION['username']); }
 function get_name() { return mres($_SESSION['name']); }
 function admin() { if (auth()) { $sql = sql("SELECT admin FROM members WHERE id='".get_id()."' LIMIT 1"); if ($sql['admin'] == 1) { return true; } } return false; }
 
-function get_header() { if (file_exists("inc/header.php")) { require ("inc/header.php"); } }
-function get_footer() { if (file_exists("inc/footer.php")) { require ("inc/footer.php"); } }
+function get_head() { if (file_exists("inc/header.php")) { require ("inc/header.php"); } }
+function get_foot() { if (file_exists("inc/footer.php")) { require ("inc/footer.php"); } }
 function get_page() { 
 	if (isset($_GET['p'])) {
 		$_GET['p'] = mres($_GET['p']);
@@ -54,8 +57,10 @@ function get_page() {
 	}
 }
 
+function get_adminhead() { if (file_exists("inc/admin-header.php")) { require ("inc/admin-header.php"); } }
+function get_adminfoot() { if (file_exists("inc/admin-footer.php")) { require ("inc/admin-footer.php"); } }
 function get_adminpage() { 
-	if (!admin()) { relocate("/404");}
+	if (!admin()) { relocate("/404"); }
 	if (isset($_GET['u'])) {
 		$_GET['u'] = mres($_GET['u']);
 		if (file_exists("page/admin/".$_GET['u'].".php")) {
@@ -100,13 +105,23 @@ function urlname($fn) {
    return $fn;
 }
 
-function get_ipaddress() {
+function get_ipadress() {
 	if (isset($_SERVER["HTTP_CLIENT_IP"])) { return $_SERVER["HTTP_CLIENT_IP"];}
 	elseif (isset($_SERVER["HTTP_X_FORWARDED_FOR"])) { return $_SERVER["HTTP_X_FORWARDED_FOR"];}
 	elseif (isset($_SERVER["HTTP_X_FORWARDED"])) { return $_SERVER["HTTP_X_FORWARDED"];}
 	elseif (isset($_SERVER["HTTP_FORWARDED_FOR"])) { return $_SERVER["HTTP_FORWARDED_FOR"];}
 	elseif (isset($_SERVER["HTTP_FORWARDED"])) { return $_SERVER["HTTP_FORWARDED"];	}
 	else { return $_SERVER["REMOTE_ADDR"]; }
+}
+
+function iplog() {
+	$count = mysql_query("SELECT ipadress FROM `visits` WHERE `ipadress`='".get_ipadress()."' AND `date`='".date('Y-m-d')."' LIMIT 1") or die(mysql_error());
+	if(mysql_num_rows($count)==0) {
+		$ua = getBrowser();
+		$browser = $ua['name']." ".$ua['version'];
+		$system = $ua['platform'];
+		mysql_query("INSERT INTO `visits` (`id`, `ipadress`, `date`, `browser`, `system`) VALUES ('', '".get_ipadress()."', '".date('Y-m-d')."', '".$browser."', '".$system."')") or die(mysql_error());
+	}
 }
 
 function mysql_count($table, $where="") {
@@ -133,4 +148,106 @@ function cut($str,$length,$maxlines=null) {
 	else return $str;
 }
 
+function getBrowser() {
+  $u_agent = $_SERVER['HTTP_USER_AGENT'];
+  $bname = 'Annan';
+  $platform = 'Annat';
+  $version= "";
+
+  if (preg_match('/linux/i', $u_agent)) {
+    $platform = 'Linux';
+  }
+  
+  elseif (preg_match('/macintosh|mac os|iPhone/i', $u_agent)) {
+    $platform = 'Mac';    
+	}
+  
+  elseif (preg_match('/iPhone/i', $u_agent)) {
+    $platform = 'Mac';
+  }
+
+  elseif (preg_match('/windows|win32/i', $u_agent)) {
+    $platform = 'Windows';
+  }
+
+  if (preg_match('/MSIE/i',$u_agent) && !preg_match('/Opera/i',$u_agent)) {
+    $bname = 'Internet Explorer';
+    $ub = "MSIE";
+  }
+
+  elseif (preg_match('/iPhone/i',$u_agent) && preg_match('/Opera/i',$u_agent)) {
+    $bname = 'iPhone Opera Mini';
+    $ub = "Ipone";
+  }
+
+	elseif( preg_match('/iPod/i',$u_agent) && preg_match('/Opera/i',$u_agent)) {
+    $bname = 'iPod Opera Mini';
+    $ub = "iPod";
+  }
+
+	elseif (preg_match('/iPhone/i',$u_agent)) {
+    $bname = 'iPhone Safari';
+    $ub = "Ipone";
+  } 
+
+	elseif (preg_match('/iPod/i',$u_agent)) {
+    $bname = 'iPod Safari';
+    $ub = "iPod";
+  } 
+
+	elseif (preg_match('/Firefox/i',$u_agent)) {
+    $bname = 'Mozilla Firefox';
+    $ub = "Firefox";
+  }
+
+  elseif (preg_match('/Chrome/i',$u_agent)) {
+    $bname = 'Google Chrome';
+    $ub = "Chrome";
+  }
+
+  elseif (preg_match('/Safari/i',$u_agent)) {
+    $bname = 'Apple Safari';
+    $ub = "Safari";
+  }
+   
+  elseif (preg_match('/Opera/i',$u_agent)) {
+    $bname = 'Opera';
+    $ub = "Opera";
+  }
+
+  elseif (preg_match('/Netscape/i',$u_agent)) {
+    $bname = 'Netscape';
+    $ub = "Netscape";
+  }
+
+  $known = array('Version', $ub, 'other');
+  $pattern = '#(?<browser>' . join('|', $known) . ')[/ ]+(?<version>[0-9.|a-zA-Z.]*)#';
+  if (!preg_match_all($pattern, $u_agent, $matches)) { }
+
+  $i = count($matches['browser']);
+  if ($i != 1) {
+    if (strripos($u_agent,"Version") < strripos($u_agent,$ub)){
+      $version= $matches['version'][0];
+    }
+    else {
+      $version= $matches['version'][1];
+    }
+  }
+  
+  else {
+    $version= $matches['version'][0];
+  }
+  
+  if ($version==null || $version=="") { 
+  	$version="?"; 
+ 	}
+   
+  return array(
+    'userAgent' => $u_agent,
+    'name'      => $bname,
+    'version'   => $version,
+    'platform'  => $platform,
+    'pattern'   => $pattern
+  );
+}
 ?>

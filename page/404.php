@@ -1,2 +1,20 @@
-<h2>The page your'e looking for doesn't exist.</h2>
-<h3>Head back to <a href="./">Reesu.me</a>.</h3>
+<?php
+# Get header
+get_head();
+?>
+<section id="paper">
+	<header>
+		<hgroup>
+			<h1>404, Page doesn't exist</h1>
+		<hgroup>
+	</header>
+
+	<article class="content">
+		<h3>The page your'e looking for doesn't exist.</h3>
+		<p>Head back to <a style="color: #333;" href="./">Reesu.me</a>.</p>
+	</srticle>
+</section>
+<?php
+# Get footer
+get_foot();
+?>

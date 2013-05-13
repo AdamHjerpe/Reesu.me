@@ -1,3 +1,84 @@
+<?php
+# Get header
+get_head();
+
+# Guest first-page
+if (!auth()) { 
+?>
+<section id="main">
+	<div class="main-content">
+		<hgroup>
+			<h1>Reesume</h1>
+			<h3>Create your own beautiful resume<br />within minutes, for free!</h3>
+		</hgroup>
+	</div><!-- ./ div.main-content -->
+
+	<aside id="main-sign-up">
+		<h3>Sign in</h3>
+
+		<form action="" method="post" class="form">
+			<input type="text" name="username" value="" placeholder="Username or Email" required />
+			<input type="password" name="password" value="" placeholder="Password" required />
+			
+			<input type="checkbox" value="1" name="remember_me" /> <label for="remember_me">Remember me</label>
+			<input type="submit" name="signin" value="SIGN IN" />
+
+			<ul>
+				<li><a href="#">Recover Password?</a></li>
+				<li><a href="#">Sign up</a></li>
+			</ul>
+		</form>
+	</aside><!-- ./ aside#main-sign-up -->
+</section><!-- ./ section#main -->
+
+<!--
+		<h3>Sign up <span>at</span> Reesume</h3>
+
+		<form action="" method="post" class="form">
+			<input type="text" name="username" value="" placeholder="Username" required />
+			<input type="email" name="email" value="" placeholder="Email" required />
+			<input type="password" name="password" value="" placeholder="Password" required />
+				
+			<input type="submit" name="signup" value="SIGN UP FOR FREE" />
+		</form>
+
+			<h3>Recover account</h3>
+
+			<form action="" method="post" class="form">
+				<input type="text" name="username" value="" placeholder="Username or Email" required />
+				<input type="submit" name="recover" value="Recover" />
+			</form>
+-->
+<?php } ?>
+
+<?php
+# Signed in first-page
+if (auth()) {
+?>
+
+<section id="main">
+	<div class="main-content">
+		
+
+
+	</div><!-- ./ div.main-content -->
+
+	<aside id="main-content-side">
+		
+		
+
+	</aside><!-- ./ aside#main-sign-up -->
+</section><!-- ./ section#main -->
+
+<?php } ?>
+<?php
+# Get footer
+get_foot();
+?>
+
+<!--
+# Resume view
+
 <section id="paper">
 	<header class="edit">
 		<hgroup>
@@ -86,3 +167,4 @@
 	</section>
 </section>
 <div style="clear: both; font-size: 1px;">&nbsp;</div>
+-->

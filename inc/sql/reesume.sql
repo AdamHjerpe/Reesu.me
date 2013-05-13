@@ -32,3 +32,13 @@ CREATE TABLE IF NOT EXISTS `notifications` (
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
+
+CREATE TABLE IF NOT EXISTS `visits` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ipadress` varchar(200) NOT NULL,
+  `date` date NOT NULL,
+  `browser` varchar(200) NOT NULL,
+  `system` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `ipadress` (`ipadress`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;

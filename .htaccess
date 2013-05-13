@@ -39,7 +39,7 @@ AddType image/x-icon .ico
 
 <IfModule mod_headers.c>
   <FilesMatch "\.(js|css|xml|gz)$">
-    Header append Vary Accept-Encoding
+    Vary: Accept-Encoding
   </FilesMatch>
 </IfModule>
 
