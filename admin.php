@@ -1,3 +1,0 @@
-<?php
-	get_adminpage();
-?>
