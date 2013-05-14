@@ -1,9 +1,53 @@
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro|Dancing+Script);
-/* Stylesheet for Reesume (v0.2) Produced by Adam Hjerpe & Linus Lilja 2013
-**/
-/* Import google-fonts */
-/* Simple reset */
-* { margin: 0; padding: 0; outline: 0; border: 0; -webkit-font-smoothing: subpixel-antialiased; }
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
+@import url(http://fonts.googleapis.com/css?family=Dancing+Script:700);
+* { margin: 0; padding: 0; outline: none; border: none; vertical-align: baseline; -webkit-font-smoothing: subpixel-antialiased; }
+
+@font-face { font-family: 'icons'; src: url("common-icons-webfont.eot"); src: url("common-icons-webfont.eot?#iefix") format("embedded-opentype"), url("common-icons-webfont.woff") format("woff"), url("common-icons-webfont.ttf") format("truetype"), url("common-icons-webfont.svg#heydings_iconsregular") format("svg"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'controls'; src: url("controls-webfont.eot"); src: url("controls-webfont.eot?#iefix") format("embedded-opentype"), url("controls-webfont.woff") format("woff"), url("controls-webfont.ttf") format("truetype"), url("controls-webfont.svg#heydings_controlsregular") format("svg"); font-weight: normal; font-style: normal; }
+
+h1, h2, h3, h4, h5, h6 { line-height: 1.5em; font-family: "Open Sans Condensed", sans-serif; font-weight: bold; -webkit-font-smoothing: antialiased; }
+h1 margin, h2 margin, h3 margin, h4 margin, h5 margin, h6 margin { bottom: 1em; }
+
+h1 { font-size: 2em; border-spacing: 10px; }
+
+h2 { font-size: 1.6em; text-transform: uppercase; letter-spacing: 0.05em; }
+
+h3 { font-size: 1.4em; }
+
+h4 { font-size: 1.2em; font-weight: 300; text-transform: uppercase; }
+
+h5 { font-size: 1.1em; }
+
+h6 { font-size: 1em; }
+
+p { font-family: "Open Sans", "Helvetica Neue", Arial, Garuda, Sans-serif; font-size: 1em; margin: 0 0 0.5em 0; }
+
+ul, ol { margin: 0 0 1.5em 1.5em; }
+
+a { color: #555555; border-bottom: 0.1em solid #c14444; text-decoration: none; }
+a:visited { color: #959595; border-bottom: 0.1em solid #d47d7d; }
+a:hover { color: #3b3b3b; border-bottom: 0.1em solid #9e3434; }
+a:focus { color: #2f2f2f; border-bottom: 0.1em solid #8b2e2e; }
+a:active { color: #2f2f2f; border-bottom: 0.1em solid #8b2e2e; }
+
+li { margin: 0 0 0.5em 0; }
+
+em { font-style: italic; }
+em font { family: "Open Sans", "Helvetica Neue", Arial, Garuda, Sans-serif; }
+
+strong font { family: "Open Sans", "Helvetica Neue", Arial, Garuda, Sans-serif; weight: 700; }
+
+q:before { content: open-quote; }
+q:after { content: close-quote; }
+
+blockquote { background: ligthen(#dddddd, 1.5%); border-left: 10px solid #b13b3b; margin: 1.5em 0; padding: 0.5em 1.5em; quotes: “\201C”“\201D”“\2018”“\2019”; }
+blockquote:lang(sv) { quotes: "\201D" "\201D" "\2019" "\2019"; }
+blockquote:lang(da) { quotes: "\00BB" "\00AB" "\203A" "\2039"; }
+blockquote:before { content: open-quote; }
+blockquote:after { content: close-quote; }
+blockquote p { display: inline; }
 
 /* Hover-transision */
 :hover { -webkit-transition: all 0.2s ease-in; -moz-transition: all 0.2s ease-in; -o-transition: all 0.2s ease-in; transition: all 0.2s ease-in; }
@@ -18,7 +62,7 @@ html, body { color: #4D4D4D; background: url(http://content.wallpapers-room.com/
 /* Top elements */
 #headings { max-width: 800px; width: calc(80% + 60px); margin: 0 auto; min-height: 100px; max-height: 150px; }
 
-a.logo { background: #10D080; float: left; text-indent: 20px; width: 100px; height: 100px; line-height: 100px; font-size: 3em; color: #FFF; font-family: "Dancing Script", sans-serif; }
+a.logo { background: #10D080; float: left; text-indent: 20px; width: 8rem; height: 8rem; line-height: 100px; font-size: 3em; color: #FFF; font-family: "Dancing Script", sans-serif; }
 
 a.logo h1 > span { display: none; }
 

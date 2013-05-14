@@ -1,20 +1,77 @@
-/*
- * Stylesheet for Reesume (v0.2)
- * Produced by Adam Hjerpe & Linus Lilja
- * 2013
-**/
+////////////////////////////////////////////
+//  Stylesheet for Reesume (v0.2)         //
+//  Produced by Adam Hjerpe & Linus Lilja //
+//  2013                                  //
+////////////////////////////////////////////
 
-/* Import google-fonts */
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro|Dancing+Script);
+//
+//  Please refer to style guide in README.md for 
+//
+//
+//
+///////////////////////////////////
+// --- --- --- Index --- --- --- //
+///////////////////////////////////
+//
+// 1. Variables
+// 2. Mixins
+// 3. Layout
+// - 3.1 Header
+// - 3.2 Main content
+// - 3.3 Sidebar
 
-/* Simple reset */
-* { 
-  margin: 0; 
-  padding: 0; 
-  outline: 0; 
-  border: 0; 
-  -webkit-font-smoothing: subpixel-antialiased; 
-}
+// @import: "compass";
+
+
+///////////////////////////
+// Css development reset //
+///////////////////////////
+
+ * { margin: 0; padding: 0; outline: none; border: none; vertical-align: baseline; -webkit-font-smoothing: subpixel-antialiased;}
+
+//////////////////
+// 1. Variables //
+//////////////////
+
+// Breakpoints
+  $break-small: 840px;
+  $break-large: 1024px;
+  $break-x-large: 1200px;
+
+// Font-sizes
+
+// Desktop font-size
+  $f-size: 16px;
+// Tablet font-size
+  $f-size-m: 14px;
+// Mobile font-size 
+  $f-size-s: 12px;
+
+// Line height, change to match vertical rhytm for document
+  $l-height: 1.5em;
+
+// Header background color or pattern
+  // Orange:;
+    // $head-col: #FF9666;
+  // Facebook Blue:;
+    // $head-col: #4660a2;
+  // Linus Lilja Teal: 
+    // $head-col: #10D080;
+  // Random Red
+   $head-col: #C14444;
+
+// Background color
+  $bg-col: #dddddd;
+
+// Font Color
+  $font-col: #555555;
+
+
+/////////////////////////////////
+// Import of typography styles //
+/////////////////////////////////
+
+@import "typography.scss";
 
 /* Hover-transision */
 :hover { 
@@ -55,8 +112,8 @@ a.logo  {
   background: #10D080; 
   float: left; 
   text-indent: 20px; 
-  width: 100px; 
-  height: 100px; 
+  width: 8rem; 
+  height: 8rem; 
   line-height: 100px; 
   font-size: 3em; 
   color: #FFF; 
