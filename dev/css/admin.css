@@ -1,0 +1,38 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro|Dancing+Script);
+
+/* Simple reset */
+* { margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+
+/* Hover-transision */
+:hover { -webkit-transition: all 0.2s ease-in; -moz-transition: all 0.2s ease-in; -o-transition: all 0.2s ease-in; transition: all 0.2s ease-in; }
+
+.clear { clear: both; font-size: 1px; }
+.left { float: left; }
+.right { float: right; }
+
+/* Basic link-styling */
+a, a:visited { color: #4D4D4D; text-decoration: none; }
+a:hover { text-decoration: none; }
+
+/* Set up the layout */
+html, body { color: #4D4D4D; background: #323332; font-family: 'Source Sans Pro', sans-serif; line-height: 1.5; font-size: 1.1em; }
+
+/* Elements */
+header#admin-header { background: #10D080; height: 75px; width: 100%; }
+#admin-main { max-width: 100%; }
+nav#admin-nav { width: 150px; float: left; background: #323332; height: 100%; display: block; }
+section#admin-content { background: #FFF; float: left; width: calc(100% - 190px); padding: 20px; }
+
+header#admin-header h1 { text-indent: 20px;line-height: 75px; font-size: 2.8em; color: #FFF; font-family: "Dancing Script", sans-serif; }
+
+nav#admin-nav ul li { text-indent: 20px; width: 150px; height: 50px; line-height: 50px; list-style-type: none; display: block; }
+nav#admin-nav ul li:hover { background: #282828; }
+
+nav#admin-nav ul li > a, nav#admin-nav ul li > a:visited { color: #FFF; text-decoration: none; text-transform: uppercase; }
+
+#widgets { float: left; max-width: 640px; width: 100%; height: 100%; }
+.this-week, .stats { width: 300px; height: 250px; }
+
+.unique-visits, .total-visits { color: #FFF; width: 300px; height: 100px; background: #10D080; }
+.unique-visits-int { background: #14be77; width: 100px; line-height: 100px; font-size: 2.8em; text-align: center; float: left; }
+.unique-visits-text { text-indent: 30px; line-height: 100px; font-size: 1.2em; text-transform: uppercase; }

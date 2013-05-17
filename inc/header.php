@@ -4,7 +4,7 @@ if (auth()) {}
 
 # Sign in
 elseif (isset($_POST['signin']) && !empty($_POST['username']) && !empty($_POST['password'])) {
-	$sql = mysql_query("SELECT `id`, `name`, `username`, `password`, `active` FROM `members` WHERE `username`='".mres($_POST['username'])."' OR `email`='".mres($_POST['username'])."' LIMIT 1") or die(mysql_error());
+	$sql = mysql_query("SELECT `id`, `name`, `username`, `password`, `active` FROM `members` WHERE `username`='".mres($_POST['username'])."' OR `email`='".mres($_POST['email'])."' LIMIT 1") or die(mysql_error());
 	if (mysql_num_rows($sql)>0) {
 		$row = mysql_fetch_assoc($sql);
 		echo $row['password'];
@@ -61,7 +61,8 @@ elseif (isset($_POST['signup']) && !empty($_POST['username']) && !empty($_POST['
 		$ipaddress = get_ipadress();
 		$password = mres($_POST['password']);
 		$safepass = safepass($username, $password);
-		mysql_query("INSERT INTO members (username, password, email, confirm_key, name, ipaddress, lastseen) VALUES ('".$username."', '".$safepass."', '".$email."', '".$confirm_key."', '".$username."', '".$ipaddress."', '".$today."')") or die(mysql_error());
+		$today = date('Y-m-d');
+		mysql_query("INSERT INTO members (username, password, email, confirm_key, name, reg_ip, lastseen) VALUES ('".$username."', '".$safepass."', '".$email."', '".$confirm_key."', '".$username."', '".$ipaddress."', '".$today."')") or die(mysql_error());
 		mysql_query("INSERT INTO notifications (members_to, members_from, text) VALUES ('".$row['id']."', '0', 'Welcome to Reesume!')") or die(mysql_error());
 		$subject = 'Welcome to Reesume';
 		$message =

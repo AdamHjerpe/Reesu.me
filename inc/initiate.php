@@ -19,18 +19,22 @@ mysql_select_db('134355-reesume', $connect);
 # Functions
 function get_tag($tag,$xml) { preg_match_all('/<'.$tag.'>(.*)<\/'.$tag.'>$/imU',$xml,$match); return $match[1]; }
 function is_bot() { $botlist = array("Teoma", "alexa", "froogle", "Gigabot", "inktomi","looksmart", "URL_Spider_SQL", "Firefly", "NationalDirectory","Ask Jeeves", "TECNOSEEK", "InfoSeek", "WebFindBot", "girafabot","crawler", "www.galaxy.com", "Googlebot", "Scooter", "Slurp","msnbot", "appie", "FAST", "WebBug", "Spade", "ZyBorg", "rabaz","Baiduspider", "Feedfetcher-Google", "TechnoratiSnoop", "Rankivabot","Mediapartners-Google", "Sogou web spider", "WebAlta Crawler","TweetmemeBot","Butterfly","Twitturls","Me.dium","Twiceler"); foreach($botlist as $bot) { if(strpos($_SERVER['HTTP_USER_AGENT'],$bot)!==false) return true; } return false; }
+function lastseen() { if (auth()) { mysql_query("UPDATE members SET lastseen=NOW(), ipaddress='".get_ipadress()."' WHERE id='".get_id()."' LIMIT 1") or die(mysql_error()); } }
+function now() { date('Y-m-d H:i:s'); }
 
 function check_email($email) { if (!preg_match('/^[-A-Za-z0-9_.]+[@][A-Za-z0-9_-]+([.][A-Za-z0-9_-]+)*[.][A-Za-z]{2,6}$/', $email)) return false; return $email;}
 
-function get_randomhash($length=10) { return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),0,$length);}
+function get_randomhash($length=7) { return substr(uniqid(str_shuffle('abcdefghijklmnopqrstuvwxyz0123456789')),0,$length); }
 function get_confirmkey() {	return sha1(md5(date('Y-m-d H:i:s')).get_randomhash().CONFIM_KEY); }
 function get_cookiekey($username) { return sha1(COOKIE_KEY.$username); }
 
-function mres($value) { return mysql_real_escape_string($value);}	
-function mres_id($value) { return mres(ereg_replace("[^0-9]", "", $value));}
-function notags($value) { return str_replace(array("<",">",'"', "'"),array("&lt;","&gt;","&quot;","&#39;"),$value);}
+function mres($value) { return mysql_real_escape_string($value); }	
+function mres_id($value) { return mres(ereg_replace("[^0-9]", "", $value)); }
+function notags($value) { return str_replace(array("<",">",'"', "'"),array("&lt;","&gt;","&quot;","&#39;"),$value); }
 function safepass ($username, $password) { $password = sha1($password.SHA1_KEY); return hash('sha512', $username.$password.SHA512_KEY);}
+function escape ($value) { $value = trim($value); $value = str_replace(array("<",">",'"', "'", ";"),"",$value); return mysql_real_escape_string($value); }
 
+function slug($str) { $str = strtolower(trim($str)); $str = preg_replace('/[^a-z0-9-]/', '-', $str); $str = preg_replace('/-+/', "-", $str); return $str; }
 function relocate($url) { if ($url == -1) $url = $_SERVER['HTTP_REFERER'] ? $_SERVER['HTTP_REFERER'] : "/"; Header("Location: $url");	die(); }
 
 function caps($value) {	return mb_strtoupper($value); }
@@ -44,10 +48,14 @@ function get_id() { return mres_id($_SESSION['id']); }
 function get_username() { return mres($_SESSION['username']); }
 function get_name() { return mres($_SESSION['name']); }
 function admin() { if (auth()) { $sql = sql("SELECT admin FROM members WHERE id='".get_id()."' LIMIT 1"); if ($sql['admin'] == 1) { return true; } } return false; }
+function id2user ($value) { $value = mysql_query("SELECT `username` FROM `members` WHERE `id`='".$value."' LIMIT 1") or die(mysql_error()); $value = mysql_fetch_assoc($value); return $value['username']; }
+function user2id ($value) { $value = mysql_query("SELECT `id` FROM `members` WHERE `username`='".$value."' LIMIT 1") or die(mysql_error()); $value = mysql_fetch_assoc($value); return $value['id']; }
 
 function get_head() { if (file_exists("inc/header.php")) { require ("inc/header.php"); } }
 function get_foot() { if (file_exists("inc/footer.php")) { require ("inc/footer.php"); } }
-function get_page() { 
+function get_page() { $uri = explode('/', $_SERVER['REQUEST_URI']); if (sizeof($uri) > 1 && !empty($uri[1])) { $post = $uri[1]; } else { $post = "start"; } $get = escape(preg_replace('/[^a-z0-9-_]/i','', $post)); $disallowed_urls = array('initiate', 'header', 'footer'); if (in_array($get, $disallowed_urls)) { $get = 'start'; } if (file_exists('page/'.$get.'.php')) { include ('page/'.$get.'.php'); } else { include ('page/404.php'); } }
+
+/* Old page
 	if (isset($_GET['p'])) {
 		$_GET['p'] = mres($_GET['p']);
 		if (file_exists("page/".$_GET['p'].".php")) {
@@ -59,6 +67,7 @@ function get_page() {
 		include ("page/start.php");
 	}
 }
+*/
 
 function get_adminpage() { 
 	if (!admin()) { relocate("/404"); }
@@ -85,32 +94,11 @@ if (get_magic_quotes_gpc()) {
 	$_COOKIE = strip_array($_COOKIE);
 }
 
-function urlname($fn) {
-   $fn = strtolower($fn);
-
-   $fn = str_replace(array('.'), "", $fn);
-   $fn = str_replace(array('å', 'ä', 'ã', 'â', 'á', 'à'),         	'a', $fn);
-   $fn = str_replace(array('ö', 'õ', 'ô', 'ó', 'ò', 'ø'),         	'o', $fn);
-   $fn = str_replace(array('ü', 'û', 'ú', 'ù'),                		'u', $fn);
-   $fn = str_replace(array('é', 'è', 'ê', 'ë'),               		'e', $fn);
-   $fn = str_replace(array('í', 'ì', 'ï', 'î'),               		'i', $fn);
-   $fn = str_replace(array('ñ'),                          		 	'n', $fn);
-   $fn = str_replace(array('ÿ'),                          		 	'y', $fn);
-   $fn = str_replace(array('ß'),                         		   'ss', $fn);
-   $fn = str_replace(array('æ'),                          		   'ae', $fn);
-   
-   $fn = preg_replace("/\s/", "-", $fn);
-   $fn = preg_replace("/[^\w\d\.\-]/", "", $fn);
-   $fn = preg_replace("/[\-]{2,}/", "-", $fn);
-
-   return $fn;
-}
-
 function get_ipadress() {
-	if (isset($_SERVER["HTTP_CLIENT_IP"])) { return $_SERVER["HTTP_CLIENT_IP"];}
-	elseif (isset($_SERVER["HTTP_X_FORWARDED_FOR"])) { return $_SERVER["HTTP_X_FORWARDED_FOR"];}
-	elseif (isset($_SERVER["HTTP_X_FORWARDED"])) { return $_SERVER["HTTP_X_FORWARDED"];}
-	elseif (isset($_SERVER["HTTP_FORWARDED_FOR"])) { return $_SERVER["HTTP_FORWARDED_FOR"];}
+	if (isset($_SERVER["HTTP_CLIENT_IP"])) { return $_SERVER["HTTP_CLIENT_IP"]; }
+	elseif (isset($_SERVER["HTTP_X_FORWARDED_FOR"])) { return $_SERVER["HTTP_X_FORWARDED_FOR"]; }
+	elseif (isset($_SERVER["HTTP_X_FORWARDED"])) { return $_SERVER["HTTP_X_FORWARDED"]; }
+	elseif (isset($_SERVER["HTTP_FORWARDED_FOR"])) { return $_SERVER["HTTP_FORWARDED_FOR"]; }
 	elseif (isset($_SERVER["HTTP_FORWARDED"])) { return $_SERVER["HTTP_FORWARDED"];	}
 	else { return $_SERVER["REMOTE_ADDR"]; }
 }
@@ -295,4 +283,5 @@ function online() {
 
 	mysql_query("DELETE FROM online WHERE dt<SUBTIME(NOW(),'0 0:10:0')");
 }
+
 ?>

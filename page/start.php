@@ -11,19 +11,17 @@ if (!auth()) {
 	</div><!-- ./ div.main-content -->
 
 	<aside id="sidebar" class="main-sign-up">
-		<h3>Sign up <span>at</span> Reesume</h3>
+
+	<h3>Recover account</h3>
+
+			<form action="" method="post" class="form">
+				<input type="text" name="username" value="" placeholder="Username or Email" required />
+				<input type="submit" name="recover" value="Recover" />
+			</form>
+		<h3>Sign in</h3>
 
 		<form action="" method="post" class="form">
 			<input type="text" name="username" value="" placeholder="Username" required />
-			<input type="email" name="email" value="" placeholder="Email" required />
-			<input type="password" name="password" value="" placeholder="Password" required />
-				
-			<input type="submit" name="signup" value="SIGN UP" />
-		</form>
-		<!--<h3>Sign in</h3>
-
-		<form action="" method="post" class="form">
-			<input type="text" name="username" value="" placeholder="Username or Email" required />
 			<input type="password" name="password" value="" placeholder="Password" required />
 			
 			<input type="checkbox" value="1" name="remember_me" /> <label for="remember_me">Remember me</label>
@@ -33,9 +31,9 @@ if (!auth()) {
 				<li><a href="#">Recover Password?</a></li>
 				<li><a href="#">Sign up</a></li>
 			</ul>
-		</form>-->
+		</form>
 	</aside><!-- ./ aside#main-sign-up -->
-</section><!-- ./ section#main -->
+</div><!-- ./ section#main -->
 
 <!--
 		<h3>Sign up <span>at</span> Reesume</h3>
@@ -64,12 +62,22 @@ if (auth()) {
 
 	<div id="pagewrap">
     <div id="content">
+
       <article>
         <h1>My resumes</h1>
         <div class="latest-news">
           
         </div>
-      </article><!-- /Senaste nyheter -->
+      </article>
+			
+			<?php if (admin()) { ?>
+      <article>
+        <h1>Weekly stats</h1>
+        <div class="latest-news">
+          Stay
+        </div>
+      </article>
+    	<?php } ?>
 
       <article class="selected-job">
       	<h2>Selected job</h2>
@@ -80,7 +88,9 @@ if (auth()) {
    				<a href="#">Front-end web developer for agency in Amsterdam</a>
    				<p>Posted by: <a href="#">Undutchables</a></p>
    			</div>
+   		</section>
       </article>
+	
     </div><!-- /#content -->
 
     <aside id="sidebar">
