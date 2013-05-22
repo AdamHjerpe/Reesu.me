@@ -1,0 +1,70 @@
+RewriteEngine On
+RewriteRule ^([a-zA-Z0-9_-]+)/?$ index.php?p=$1
+#RewriteRule ^([a-z]+)?/?([a-zA-Z0-9_-]+)?/?$ /index.php?p=$1&u=$2 [QSA]
+RewriteRule ^page?/?([a-zA-Z0-9_-]+)?/?$ /index.php?p=page&u=$1 [QSA]
+RewriteRule ^admin?/?([a-zA-Z0-9_-]+)?/?$ /index.php?p=admin&u=$1 [QSA]
+RewriteRule ^profile?/?([a-zA-Z0-9_-]+)?/?$ /index.php?p=profile&username=$1 [QSA]
+RewriteRule ^activate?/?([a-zA-Z0-9_-]+)?/?$ /index.php?p=activate&confirmkey=$1 [QSA]
+
+# Use Mod_deflate to compress static files
+<ifmodule mod_deflate.c>
+  <filesmatch ".(bmp|css|flv|gif|ico|jpg|jpeg|js|pdf|png|svg|swf|tif|tiff|html|htm|php|xml|txt|css|js)$">
+    SetOutputFilter DEFLATE
+  </filesmatch>
+</ifmodule>
+
+# Expires
+ExpiresActive On
+ExpiresDefault "access plus 366 days"
+
+# Future Expires Headers
+<filesmatch ".(bmp|css|flv|gif|ico|jpg|jpeg|js|pdf|png|svg|swf|tif|tiff|html|htm|php|xml|txt|css|js)$">
+  Header set Expires "Sat, 27 Dec 2014 23:59:59 GMT"
+</filesmatch>
+
+AddType image/x-icon .ico
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(bmp|css|flv|gif|ico|jpg|jpeg|js|pdf|png|svg|swf|tif|tiff|html|htm|php|xml|txt|css|js)$">
+		Header unset ETag
+		FileETag None
+	</FilesMatch>
+</IfModule>
+
+<FilesMatch "\.(ttf|otf|eot|woff)$">
+  <IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+  </IfModule>
+</FilesMatch>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|xml|gz)$">
+    Vary: Accept-Encoding
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(bmp|css|flv|gif|ico|jpg|jpeg|js|pdf|png|svg|swf|tif|tiff|html|htm|php|xml|txt|css|js)$">
+    Header set Last-Modified "Sat, 11 May 2013 00:00:00 GMT"
+  </FilesMatch>
+</IfModule>
+
+# 1 YEAR
+<FilesMatch "\.(ico|pdf|flv)$">
+  Header set Cache-Control "max-age=29030400, private, public, proxy-revalidate"
+</FilesMatch>
+
+# 1 WEEK
+<FilesMatch "\.(jpg|jpeg|png|gif|swf)$">
+  Header set Cache-Control "max-age=604800, private, public, proxy-revalidate"
+</FilesMatch>
+
+# 2 DAYS
+<FilesMatch "\.(xml|txt|css|js)$">
+  Header set Cache-Control "max-age=604800, private, public, proxy-revalidate"
+</FilesMatch>
+
+# 1 MIN
+<FilesMatch "\.(html|htm|php)$">
+  Header set Cache-Control "max-age=604800, private, public, proxy-revalidate"
+</FilesMatch>
