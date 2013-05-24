@@ -10,8 +10,8 @@ define('CONFIM_KEY', 'K(,[Z2feD~q8jX6BYBNb+v-tZiytB7yD~HPZu&],W_$8=Q q,D?[N[[,(#
 define('COOKIE_KEY', 'm2QDzM,h+w7B#Hm*g>l9^aao)ypPr6gX,FQ,zjA)Z8XX/;M[>h*V%GrX>VA9R2SD');
 
 # Connect to DB
-$connect = @mysql_connect('reesume-134355.mysql.binero.se', '134355_jk78569', 'B4kishK4kish') or die("Kunde inte ansluta till SQL-servern. (Hög belastning...)");
-mysql_select_db('134355-reesume', $connect);
+$connect = @mysql_connect('reesumedev-160821.mysql.binero.se', '160821_kc77801', 'Smulan13') or die("Kunde inte ansluta till SQL-servern. (Hög belastning...)");
+mysql_select_db('160821-reesumedev', $connect);
 
 # Functions
 function get_ipadress() { if (isset($_SERVER["HTTP_CLIENT_IP"])) { return $_SERVER["HTTP_CLIENT_IP"]; } elseif (isset($_SERVER["HTTP_X_FORWARDED_FOR"])) { return $_SERVER["HTTP_X_FORWARDED_FOR"]; } elseif (isset($_SERVER["HTTP_X_FORWARDED"])) { return $_SERVER["HTTP_X_FORWARDED"]; } elseif (isset($_SERVER["HTTP_FORWARDED_FOR"])) { return $_SERVER["HTTP_FORWARDED_FOR"]; } elseif (isset($_SERVER["HTTP_FORWARDED"])) { return $_SERVER["HTTP_FORWARDED"];	} else { return $_SERVER["REMOTE_ADDR"]; } }
