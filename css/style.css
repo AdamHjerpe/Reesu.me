@@ -629,7 +629,7 @@ aside#sidebar > .widget-area > h2 {
     line-height: 2; }
     .selected-job-link p > a {
       color: #4D4D4D;
-      font-weight: .6em;
+      font-size: .6em;
       font-weight: 400; }
       .selected-job-link p > a:hover {
         text-decoration: underline; }
