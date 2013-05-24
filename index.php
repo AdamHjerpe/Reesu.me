@@ -17,6 +17,7 @@ mysql_query("SET CHARACTER SET 'utf8'") or die(mysql_error());
 get_ipadress();
 iplog();
 online();
+lastseen();
 
 // Page structure
 get_head();
