@@ -38,12 +38,6 @@ AddType image/x-icon .ico
 </FilesMatch>
 
 <IfModule mod_headers.c>
-  <FilesMatch "\.(js|css|xml|gz)$">
-    Vary: Accept-Encoding
-  </FilesMatch>
-</IfModule>
-
-<IfModule mod_headers.c>
   <FilesMatch "\.(bmp|css|flv|gif|ico|jpg|jpeg|js|pdf|png|svg|swf|tif|tiff|html|htm|php|xml|txt|css|js)$">
     Header set Last-Modified "Sat, 11 May 2013 00:00:00 GMT"
   </FilesMatch>
