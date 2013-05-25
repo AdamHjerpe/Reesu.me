@@ -146,52 +146,54 @@ Crew at Reesume';
 </head>
 <body>
 <!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-<section id="headings">
-	<a class="logo" href="<?php echo BASEURL; ?>">
-		<h1>R<span>eesume - Create your beautiful resume within minitues, free!</span></h1>
-	</a>
-
-	<ul id="nav">
-		<li><a class="nav-icon" href="#"> </a>
-			<?php 
-				# User signed-in navigation
-				if (auth()) { 
-			?>
-			<ul>
-				<!--<li><a href="<?php echo BASEURL; ?>go-pro/">Go pro <span>$1</span></a></li>-->
-				<li><a href="<?php echo BASEURL; ?>logout">Disconnect</a></li>
-			</ul>
-			<?php 
-				# Guest navigation
-				} else { 
-			?>
-			<ul>
-				<li><a href="<?php echo BASEURL; ?>#sign-in">Sign in</a></li>
-				<li><a href="<?php echo BASEURL; ?>#sign-up">Sign up</a></li>
-				<li><a href="<?php echo BASEURL; ?>reesume/">Reesume?</a></li>
-			</ul>
-			<?php } ?>
-		</li>
-	</ul>
-
-	<?php
-		# Notifications
-		if (auth()) {
-			$sql = mysql_query("SELECT * FROM notifications WHERE members_to='".get_id()."' ORDER BY viewed ASC LIMIT 1") or die(mysql_error());
-			if (mysql_num_rows($sql)>0) {
-				while ($row = mysql_fetch_assoc($sql)) {
-					echo '<div class="notification"><p>'.$row['text'].'</p></div>';
+<header class="headings">
+	<section class="wrapper">
+		<a class="logo" href="<?php echo BASEURL; ?>">
+			<h1>R<span>eesume - Create your beautiful resume within minitues, free!</span></h1>
+		</a>
+		
+		<ul id="nav">
+			<li><a class="nav-icon" href="#"> </a>
+				<?php 
+					# User signed-in navigation
+					if (auth()) { 
+				?>
+				<ul>
+					<!--<li><a href="<?php echo BASEURL; ?>go-pro/">Go pro <span>$1</span></a></li>-->
+					<li><a href="<?php echo BASEURL; ?>logout">Disconnect</a></li>
+				</ul>
+				<?php 
+					# Guest navigation
+					} else { 
+				?>
+				<ul>
+					<li><a href="<?php echo BASEURL; ?>#sign-in">Sign in</a></li>
+					<li><a href="<?php echo BASEURL; ?>#sign-up">Sign up</a></li>
+					<li><a href="<?php echo BASEURL; ?>reesume/">Reesume?</a></li>
+				</ul>
+				<?php } ?>
+			</li>
+		</ul>
+		
+		<?php
+			# Notifications
+			if (auth()) {
+				$sql = mysql_query("SELECT * FROM notifications WHERE members_to='".get_id()."' ORDER BY viewed ASC LIMIT 1") or die(mysql_error());
+				if (mysql_num_rows($sql)>0) {
+					while ($row = mysql_fetch_assoc($sql)) {
+						echo '<div class="notification"><p>'.$row['text'].'</p></div>';
+					}
 				}
+		
+				else {
+					echo '<div class="notification"><p>You have no new notifications</p></div>';
+				}
+		
 			}
-
+				
 			else {
-				echo '<div class="notification"><p>You have no new notifications</p></div>';
+				echo '<div class="notification"><p><a href="'.BASEURL.'#sign-up">Sign up</a> and create your own resume for free!</p></div>';
 			}
-
-		}
-			
-		else {
-			echo '<div class="notification"><p><a href="'.BASEURL.'#sign-up">Sign up</a> and create your own resume for free!</p></div>';
-		}
-	?>
-</section>
+		?>
+	</section>
+</header>

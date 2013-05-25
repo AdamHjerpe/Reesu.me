@@ -117,18 +117,29 @@ html, body {
   height: 100%;
 }
 
+.wrapper {
+  max-width: 90em;
+  @media screen and (max-width: $break-large) {
+    }
+  @media screen and (max-width: $break-medium) {
+    } 
+  @media screen and (max-width: $break-small) {
+    }
+} // .wrapper
+
+
 /* Top elements */
-#headings {
-  max-width: 800px;
-  width: calc(80% + 60px);
-  margin: 0 auto;
-  min-height: 100px;
-  max-height: 150px;
+.headings {
+  margin: 0;
+  width: 100%;
+  height: 6em;
+  border-bottom: 1em solid darken($head-col, 5%);
+  background: $head-col;
   &:after {
     @extend .clear;
   }
   @media screen and (max-width: $break-medium) {
-    width: calc(80% + 30px);
+    
   } 
 }
 a.logo  {
