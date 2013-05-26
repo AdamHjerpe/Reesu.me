@@ -20,7 +20,7 @@ $p-font: 'Open Sans', 'Helvetica Neue', Arial, Garuda, Sans-serif;
 // Change h-font variable to match imported font family name //
 ///////////////////////////////////////////////////////////////
 
-$h-font: 'Open Sans Condensed', sans-serif;;
+$h-font: 'Open Sans Condensed', $p-font;
 
 /////////////////////////////
 // Import of font for logo //
@@ -73,15 +73,23 @@ $controls-font: 'comtrols';
 ///////////////////////////////
 // All stylings for headings //
 ///////////////////////////////
-
-h1, h2, h3, h4, h5, h6 {
-  line-height: $l-height;
+.heading-font {
+    line-height: $l-height;
   margin {
     bottom: 1em;}
-  font: {
-    family: $h-font;
-    weight: bold;}
-	-webkit-font-smoothing: antialiased}
+  font-family: $h-font;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+// Loop to extend the .heading-font class contianing the font-family rule for all headings (h1-h6) //
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+@for $i from 1 to 6 {
+  h#{$i} {
+    @extend .heading-font;
+  }
+} // /@for
 
 h1 {
   font: {
@@ -229,6 +237,48 @@ blockquote {
     display:inline;
   }
 }
+
+form {
+    > input {
+      padding: 0.5em;
+      color: #949796;
+      border: 2px #949796 solid;
+      background: #FFF;
+      display: block;
+      font-size: 1em;
+      width: calc(100% - 18px);
+      margin-top: .5em;
+      &[type=submit] {
+        background: $head-col
+   ;
+        color: #FFF;
+        width: 100%;
+        border: 0px;
+        &:hover {
+          color: rgba(255,255,255, .8);
+          _color: #EEE;
+        } // &:hover
+      } // &[type=submit]
+    } // > input 
+    > ul li {
+      display: inline-block;
+      list-style-type: none;
+      line-height: 2;
+      a, a:visited {
+        color: #4D4D4D;
+        font-size: .8em;
+      } // a, a:visited
+      a:hover {
+        text-decoration: underline;
+      } // a:hover;
+      &:first-of-type {
+        float: left;
+      }
+      &:last-of-type {
+        float: right;
+      }
+    } // > ul li
+  } // form
 
 ///////////////////
 // Code Styling  //

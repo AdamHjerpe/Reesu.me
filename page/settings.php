@@ -29,7 +29,7 @@
 	if (mysql_num_rows($sql)>0) {
 		$row = mysql_fetch_assoc($sql); ereg_replace(pattern, replacement, string)
 ?>	
-		<section id="paper">
+		<section class="content">
 			<h1>Settings</h1>
 
 			<form id="settings" action="" method="post" enctype="multipart/form-data">

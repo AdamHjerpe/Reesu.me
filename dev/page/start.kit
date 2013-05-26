@@ -1,13 +1,10 @@
-<?php
-# Guest first-page
-if (!auth()) { 
-?>
+<!-- @include '../inc/_header.kit' -->
 <div id="pagewrap">
    <div id="content" class="content">
     
       <h1>Reesume</h1>
-      <img src="http://placeimg.com/600/200/people" alt="">
-      <blockquote>Create your own beautiful resume<br />within minutes, for free!</blockquote>
+      <img src="http://placeimg.com/200/600/people" alt="">
+      <h3>Create your own beautiful resume<br />within minutes, for free!</h3>
     
   </div><!-- ./ div.content -->
 
@@ -62,12 +59,12 @@ if (auth()) {
 ?>
 
   <div id="pagewrap">
-    <div class="content">
+    <div id="content">
 
       <article>
         <h1>My resumes</h1>
         <div class="latest-news">
-          D
+          
         </div>
       </article>
       
@@ -92,11 +89,10 @@ if (auth()) {
       </section>
       </article>
   
-    </div><!-- /.content -->
+    </div><!-- /#content -->
 
-    <aside class="sidebar">
+    <aside id="sidebar">
       <div class="widget-area profile">
-        <h3><?php echo get_name(); ?></h3>
         <?php 
           $sql = sql("SELECT picture FROM members WHERE id='".get_id()."' LIMIT 1");
           if (file_exists("dev/users/100/".$sql['picture'])) {
@@ -106,6 +102,7 @@ if (auth()) {
             echo '<img src="dev/users/noprofile.jpg" alt="'.get_name().' has no photo ar Reesume" width="100" height="100" />';
           }
         ?>
+        <h3><?php echo get_name(); ?></h3>
 
         <a href="<?php echo BASEURL; ?>settings/" class="get-started">Get started</a>
       </div><!-- /Profile -->
@@ -130,7 +127,7 @@ if (auth()) {
 
         <a href="#" class="load-jobs">Load jobs</a>
       </div><!-- /Latest jobs -->
-    </aside> <!-- /.sidebar -->
+    </aside>
   </div>
 
 <?php } ?>

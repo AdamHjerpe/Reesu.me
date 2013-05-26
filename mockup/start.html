@@ -1,13 +1,89 @@
-<?php
-# Guest first-page
-if (!auth()) { 
-?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reesume - Create your beautiful resume within minitues, free!</title>
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta http-equiv="content-language" content="ENG" /> 
+  <meta http-equiv="imagetoolbar" content="false" />
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1 user-scalable=no,width = 320" /> 
+  <meta name="robots" content="index, nofollow" />
+  <meta name="rating" content="general" />
+  <meta name="doc-class" content="completed" />
+  <meta name="author" content="Linus Lilja, Adam Hjerpe" />
+  <meta name="copyright" content="&copy; <?php date("Y"); ?>" />
+  <meta name="description" content="At Reesume we let you create your own beautiful resume within minitues to share when you're looking for a job, for free!" /> 
+  <meta name="keywords" content="Free resume, CV for free, online CV, share CV, resume online" />
+  
+  <link rel="canonical" href="http://reesu.me/" />
+  <link rel="image_src" href="http://reesu.me/asset/img/img_src.png" />
+  <link rel="stylesheet" href="../css/style.css" media="all" type="text/css" /> <!-- //?<?php echo date(); ?> -->
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+<!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+<header class="headings">
+  <section class="header-wrap">
+    <a class="header-slogan"href="<?php echo BASEURL; ?>">
+      <h1>Reesu.me<span> - Create your beautiful resume within minitues, free!</span></h1>
+    </a>
+    
+    <?php
+      # Notifications
+      if (auth()) {
+        $sql = mysql_query("SELECT * FROM notifications WHERE members_to='".get_id()."' ORDER BY viewed ASC LIMIT 1") or die(mysql_error());
+        if (mysql_num_rows($sql)>0) {
+          while ($row = mysql_fetch_assoc($sql)) {
+            echo '<div class="notification"><p>'.$row['text'].'</p></div>';
+          }
+        }
+    
+        else {
+          echo '<div class="notification"><p>You have no new notifications</p></div>';
+        }
+    
+      }
+        
+      else {
+        echo '<div class="notification"><p><a href="'.BASEURL.'#sign-up">Sign up</a> and create your own resume for free!</p></div>';
+      }
+    ?>
+    
+    <ul class="nav">
+      <li><a class="nav-icon" href="#"> </a>
+        <?php 
+          # User signed-in navigation
+          if (auth()) { 
+        ?>
+        <ul>
+          <!--<li><a href="<?php echo BASEURL; ?>go-pro/">Go pro <span>$1</span></a></li>-->
+          <li><a href="<?php echo BASEURL; ?>logout">Disconnect</a></li>
+        </ul>
+        <?php 
+          # Guest navigation
+          } else { 
+        ?>
+        <ul>
+          <li><a href="<?php echo BASEURL; ?>#sign-in">Sign in</a></li>
+          <li><a href="<?php echo BASEURL; ?>#sign-up">Sign up</a></li>
+          <li><a href="<?php echo BASEURL; ?>reesume/">Reesume?</a></li>
+        </ul>
+        <?php } ?>
+      </li>
+    </ul>
+    
+  </section>
+</header>
 <div id="pagewrap">
    <div id="content" class="content">
     
       <h1>Reesume</h1>
-      <img src="http://placeimg.com/600/200/people" alt="">
-      <blockquote>Create your own beautiful resume<br />within minutes, for free!</blockquote>
+      <img src="http://placeimg.com/200/600/people" alt="">
+      <h3>Create your own beautiful resume<br />within minutes, for free!</h3>
     
   </div><!-- ./ div.content -->
 
@@ -62,12 +138,12 @@ if (auth()) {
 ?>
 
   <div id="pagewrap">
-    <div class="content">
+    <div id="content">
 
       <article>
         <h1>My resumes</h1>
         <div class="latest-news">
-          D
+          
         </div>
       </article>
       
@@ -92,11 +168,10 @@ if (auth()) {
       </section>
       </article>
   
-    </div><!-- /.content -->
+    </div><!-- /#content -->
 
-    <aside class="sidebar">
+    <aside id="sidebar">
       <div class="widget-area profile">
-        <h3><?php echo get_name(); ?></h3>
         <?php 
           $sql = sql("SELECT picture FROM members WHERE id='".get_id()."' LIMIT 1");
           if (file_exists("dev/users/100/".$sql['picture'])) {
@@ -106,6 +181,7 @@ if (auth()) {
             echo '<img src="dev/users/noprofile.jpg" alt="'.get_name().' has no photo ar Reesume" width="100" height="100" />';
           }
         ?>
+        <h3><?php echo get_name(); ?></h3>
 
         <a href="<?php echo BASEURL; ?>settings/" class="get-started">Get started</a>
       </div><!-- /Profile -->
@@ -130,7 +206,7 @@ if (auth()) {
 
         <a href="#" class="load-jobs">Load jobs</a>
       </div><!-- /Latest jobs -->
-    </aside> <!-- /.sidebar -->
+    </aside>
   </div>
 
 <?php } ?>

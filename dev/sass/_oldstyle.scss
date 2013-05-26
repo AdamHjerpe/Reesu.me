@@ -110,7 +110,7 @@ body {
 // 3.1 Header styling //
 ////////////////////////
 
-header {
+.headings {
   margin: 0 0 0 0;
   width: 100%;
   height: 6em;
@@ -120,13 +120,13 @@ header {
 }
 
 .header-wrap {
-  position: fixed;
+  position: absolute;
   top: 0em;
   bottom: 0;
   left: 50%;
   margin-left: -460px;
   width: 1070px;
-  height: auto;
+  height: 5.5em;
   h1 {
     float: left;
     padding: 0 0 0 1em;
@@ -136,7 +136,9 @@ header {
     font-weight: 700;
     font-family: $logo-font;
     font-size: 3em;
-    line-height: 2em;}
+    line-height: 1.8em;
+    span { 
+      display: none;}} // span h1
     @media screen and (max-width: $break-large) {
       left: 5%;
       margin-left: 0;
@@ -149,22 +151,40 @@ header {
       padding: 0 5% 0 5%;
       width: 90%;
     }
-  a {
-    border-bottom: none;
+    .notification {
+      font-size: 0.8em;
+      margin: 0 0 0 1.8em;
+      line-height: 2.8em;
+      float: left;
+      width: 22em; 
+    }
+  p, a {
+    margin: 2.5em 0em;
+    width: auto;
+  }
+  p {
     color: lighten($bg-col, 5%);
-    &:visited, &:focus, &:active, &:hover {
+  }
+  a {
+    border-bottom: 0.1em solid lighten($bg-col, 5%);
+    color: lighten($bg-col, 5%);
+    &:visited {
+      border-bottom: 0.1em solid lighten($bg-col, 5%);
+    };
+    &:focus, &:active, &:hover {
       border-bottom: none;
       color: lighten($bg-col, 5%);
     }
   }
-    ul {
+    ul.nav {
       float: right;
       margin: 2.3em 0;
+      width: auto;
       li {
         display: inline-block;
         float: left;
         padding: 0 1em;
-        border-right: 2px solid lighten($bg-col, 5%);
+        border-right: 0.1em solid lighten($bg-col, 5%);
         color: lighten($bg-col, 5%);
         line-height: 1.4em;
         &:last-of-type {
@@ -199,12 +219,46 @@ header {
   }
 }
 
+.content-box {
+  padding: 20px;
+  h2, h3, h1 {
+    font-style: normal;
+    font-weight: 700;
+    background: $font-col;
+    text-indent: 20px;
+    height: 50px; // Positioning hack
+    line-height: 50px;
+    color: $bg-col;
+    text-transform: uppercase;
+    margin: 20px -20px 20px -20px; 
+    &:first-of-type {
+      margin: -20px -20px 20px -20px; }
+    }
+  h1 {
+    font-size: 1.5em;
+  }
+  h2 {
+    font-size: 1.4em;
+  }
+  h3 {
+    font-size: 1.3em;
+  }
+  h4 {
+    font-size: 1.2em;
+  }
+  h5 {
+    font-size: 1.1em;
+  }
+  border-bottom: 1em solid $head-col;
+}
+
 .content {
+  @extend .content-box;
   @include col-width;
   position: absolute;
   left: 50%;
+  top: 9em;
   margin-left: -180px;
-  padding: 1.5em 3em;
   background: lighten($bg-col, 5%);
   font: 1em/1.5 $p-font;
   @media screen and (min-width: $break-x-large) {
@@ -244,23 +298,25 @@ header {
     text-indent: 1em;
   }
 
+
 /////////////////
 // 3.3 Sidebar //
 /////////////////
-
+$sidebar-width: 13em;
 .sidebar{
-  position: fixed;
-  top: 4em;
+  position: absolute;
+  top: 9em;
   bottom: 0;
   left: 50%;
   margin-left: -460px;
-  padding-top: 65px;
-  width: 250px;
+  width: $sidebar-width;
+  background: $bg-col;
   height: auto;
+  @extend .content-box;
   ul{
     list-style:none;
     text-transform: uppercase;
-    font: bold 18px 'Open Sans Condensed', sans-serif;}
+    font: bold 1.1em 'Open Sans Condensed', sans-serif;}
   li a{
         display: inline-block;
     font: bold 1em/1 $h-font;
@@ -305,6 +361,7 @@ header {
     text-align: center;
   }
 }
+
 
   .sidebar-avatar {
     margin: 1em 2em;
@@ -360,9 +417,10 @@ header {
 // 404 Page Styling //
 //////////////////////
 
+.error404 {
+  hgroup {
+    h1 {
 
-
-
-
-
-
+    }
+  }
+}

@@ -1,7 +1,7 @@
 <?php
 # Define site URL and DOMAIN
-define('BASEURL', 'http://reesume.adamhjerpe.se//');
-define('DOMAIN', '.reesume.adamhjerpe.se');
+define('BASEURL', 'http://reesu.me/');
+define('DOMAIN', '.reesu.me');
 
 # Define salt's (https://api.wordpress.org/secret-key/1.1/salt/)
 define('SHA1_KEY', 	 'p9Q|?VXKHe&gjk&nA-P;ZQ%2)f$Y+eyd KRLh|/sL*-1SAu@zZz_Zup3Kzh>Kl<+');
@@ -10,8 +10,8 @@ define('CONFIM_KEY', 'K(,[Z2feD~q8jX6BYBNb+v-tZiytB7yD~HPZu&],W_$8=Q q,D?[N[[,(#
 define('COOKIE_KEY', 'm2QDzM,h+w7B#Hm*g>l9^aao)ypPr6gX,FQ,zjA)Z8XX/;M[>h*V%GrX>VA9R2SD');
 
 # Connect to DB
-$connect = @mysql_connect('reesumedev-160821.mysql.binero.se', '160821_kc77801', 'Smulan13') or die("Kunde inte ansluta till SQL-servern. (Hög belastning...)");
-mysql_select_db('160821-reesumedev', $connect);
+$connect = @mysql_connect('reesume-134355.mysql.binero.se', '134355_jk78569', 'Jesus4lajf') or die("Could not connect to DB, contact support@reesu.me for more information");
+mysql_select_db('134355-reesume', $connect);
 
 # Functions
 function get_ipadress() { if (isset($_SERVER["HTTP_CLIENT_IP"])) { return $_SERVER["HTTP_CLIENT_IP"]; } elseif (isset($_SERVER["HTTP_X_FORWARDED_FOR"])) { return $_SERVER["HTTP_X_FORWARDED_FOR"]; } elseif (isset($_SERVER["HTTP_X_FORWARDED"])) { return $_SERVER["HTTP_X_FORWARDED"]; } elseif (isset($_SERVER["HTTP_FORWARDED_FOR"])) { return $_SERVER["HTTP_FORWARDED_FOR"]; } elseif (isset($_SERVER["HTTP_FORWARDED"])) { return $_SERVER["HTTP_FORWARDED"];	} else { return $_SERVER["REMOTE_ADDR"]; } }
@@ -54,96 +54,12 @@ function admin() { if (auth()) { $sql = sql("SELECT admin FROM members WHERE id=
 function id2user ($value) { $value = mysql_query("SELECT `username` FROM `members` WHERE `id`='".$value."' LIMIT 1") or die(mysql_error()); $value = mysql_fetch_assoc($value); return $value['username']; }
 function user2id ($value) { $value = mysql_query("SELECT `id` FROM `members` WHERE `username`='".$value."' LIMIT 1") or die(mysql_error()); $value = mysql_fetch_assoc($value); return $value['id']; }
 
-function get_head()/* If you know what i'm sayin */{ if (file_exists("inc/header.php")) { require ("inc/header.php"); } }
-function get_foot()/* For the kinky people */ { if (file_exists("inc/footer.php")) { require ("inc/footer.php"); } }
+function get_head() { if (file_exists("inc/header.php")) { require ("inc/header.php"); } }
+function get_foot() { if (file_exists("inc/footer.php")) { require ("inc/footer.php"); } }
 function get_page() { if (isset($_GET['p'])) { $_GET['p'] = mres($_GET['p']); if (file_exists("page/".$_GET['p'].".php")) { include ("page/".$_GET['p'].".php"); } else { include ("page/404.php"); } } else { include ("page/start.php"); } }
 
-/*
-class Upload {
-	function __construct($file, $dir, $thumb="", $feed="") {
-		$extensions = array("jpg", "jpeg", "gif", "png");
-		$max_size = 1024 * 5000;
+class Upload { function __construct($file, $dir, $thumb="", $feed="") { $extensions = array("jpg", "jpeg", "gif", "png"); $max_size = 1024 * 5000; $fileSplit = explode(".", $file['name']); $ext = $fileSplit[count($fileSplit) - 1]; if(!in_array(strtolower($ext), $extensions)) { $_error_ = "This format isn't allowed"; } if($file['size'] > $max_size) { $_error_ = "This file is to big"; } $size = getimagesize($file['tmp_name']); if (empty($size['mime'])) die('Thats not a real image'); if(is_uploaded_file($file['tmp_name']) && !$_error_) { move_uploaded_file($file['tmp_name'], $dir.$file['name']); if($thumb) { $this->convertToThumbnail("dev/users/".$file['name'], "32", "32", $ext); $this->convertToThumbnail("dev/users/".$file['name'], "100", "100", $ext); } elseif($feed) { $this->convertToThumbnail("dev/img/feed/".$file['name'], "64", "64", $ext, "dev/img/feed"); $this->convertToThumbnail("dev/img/feed/".$file['name'], "160", "140", $ext, "dev/img/feed"); $this->convertToThumbnail("dev/img/feed/".$file['name'], "360", "260", $ext, "dev/img/feed"); $this->convertToThumbnail("dev/img/feed/".$file['name'], "640", "480", $ext, "dev/img/feed"); } } else { echo "<div class=\"notification\">$_error_</div>"; } } function convertToThumbnail($file, $width, $height, $ext, $location="", $compression = 100) { $folder = $width; if(!$location) { $location = "dev/users"; } if(!file_exists($file)) { exit("File doesn't exist"); } if($height < 1 || $width < 1) { exit("Height or width is smaller than 1"); } list($orgWidth, $orgHeight) = getimagesize($file); $emptyImage = imagecreatetruecolor($width, $height); $new_name = explode("/", $file); $new_name = end($new_name); if(strtolower($ext) == "jpg" || strtolower($ext) == "jpeg") { $image = imagecreatefromjpeg($file); imagecopyresampled($emptyImage, $image, 0, 0, 0, 0, $width, $height, $orgWidth, $orgHeight); imagejpeg($emptyImage, "$location/$folder/".$new_name, $compression); } elseif(strtolower($ext) == "gif") { $image = imagecreatefromgif($file); imagecopyresampled($emptyImage, $image, 0, 0, 0, 0, $width, $height, $orgWidth, $orgHeight); imagegif($emptyImage, "$location/$folder/".$new_name); } elseif(strtolower($ext) == "png") { $image = imagecreatefrompng($file); imagecopyresampled($emptyImage, $image, 0, 0, 0, 0, $width, $height, $orgWidth, $orgHeight); imagepng($emptyImage, "$location/$folder/".$new_name); }    imagedestroy($image); imagedestroy($emptyImage); } }
 
-		$fileSplit = explode(".", $file['name']);
-		$ext = $fileSplit[count($fileSplit) - 1];
-	
-		if(!in_array(strtolower($ext), $extensions)) {
-			$_error_ = "This format isn't allowed";
-		}
-
-		if($file['size'] > $max_size) {
-			$_error_ = "This file is to big";
-		}
-
-		$size = getimagesize($file['tmp_name']);
-
-		if (empty($size['mime'])) die('Thats not a real image');
-
-		if(is_uploaded_file($file['tmp_name']) && !$_error_) { move_uploaded_file($file['tmp_name'], $dir.$file['name']);
-			
-			if($thumb) {
-				$this->convertToThumbnail("dev/users/".$file['name'], "32", "32", $ext);
-				$this->convertToThumbnail("dev/users/".$file['name'], "100", "100", $ext);
-			}
-
-			elseif($feed) {
-				$this->convertToThumbnail("dev/img/feed/".$file['name'], "64", "64", $ext, "dev/img/feed");
-				$this->convertToThumbnail("dev/img/feed/".$file['name'], "160", "140", $ext, "dev/img/feed");
-				$this->convertToThumbnail("dev/img/feed/".$file['name'], "360", "260", $ext, "dev/img/feed");
-				$this->convertToThumbnail("dev/img/feed/".$file['name'], "640", "480", $ext, "dev/img/feed");
-			}
-		}
-		
-		else {
-			echo "<div class=\"notification\">$_error_</div>";
-		}
-	}
-
-	function convertToThumbnail($file, $width, $height, $ext, $location="", $compression = 100) {
-
-		$folder = $width;
-
-		if(!$location) {
-			$location = "dev/users";
-		}
-
-		if(!file_exists($file)) {
-			exit("File doesn't exist");
-		}
-
-		if($height < 1 || $width < 1) {
-			exit("Height or width is smaller than 1");
-		}
-
-		list($orgWidth, $orgHeight) = getimagesize($file);
-	
-		$emptyImage = imagecreatetruecolor($width, $height);
-		$new_name = explode("/", $file);
-		$new_name = end($new_name);
-		
-		if(strtolower($ext) == "jpg" || strtolower($ext) == "jpeg") {
-			$image = imagecreatefromjpeg($file);
-			imagecopyresampled($emptyImage, $image, 0, 0, 0, 0, $width, $height, $orgWidth, $orgHeight);
-			imagejpeg($emptyImage, "$location/$folder/".$new_name, $compression);
-		}
-
-		elseif(strtolower($ext) == "gif") {
-			$image = imagecreatefromgif($file);
-			imagecopyresampled($emptyImage, $image, 0, 0, 0, 0, $width, $height, $orgWidth, $orgHeight);
-			imagegif($emptyImage, "$location/$folder/".$new_name);
-		}
-
-		elseif(strtolower($ext) == "png") {
-			$image = imagecreatefrompng($file);
-			imagecopyresampled($emptyImage, $image, 0, 0, 0, 0, $width, $height, $orgWidth, $orgHeight);
-			imagepng($emptyImage, "$location/$folder/".$new_name);
-		}   
-	
-		imagedestroy($image);
-		imagedestroy($emptyImage);
-	}
-}
-*/
 if (get_magic_quotes_gpc()) {
 	function strip_array($var) { return is_array($var)? array_map("strip_array", $var):stripslashes($var); }
 	$_POST = strip_array($_POST);
