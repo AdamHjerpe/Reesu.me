@@ -143,7 +143,7 @@ html, body {
   } 
 }
 a.logo  {
-  background: #10D080;
+  background: $head-col;
   float: left;
   text-indent: 20px;
   width: 8rem;
@@ -327,7 +327,8 @@ aside.main-sign-up {
       width: calc(100% - 18px);
       margin-top: .5em;
       &[type=submit] {
-        background: #10D080;
+        background: $head-col
+   ;
         color: #FFF;
         width: 100%;
         border: 0px;
@@ -373,12 +374,6 @@ aside.main-sign-up {
 }
 
 /* Resume */
-header {
-  min-height: 100px;
-  &:after {
-    @extend .clear;
-  }
-}
 figure.me {
   display: block;
   float: right;
@@ -618,7 +613,7 @@ aside#sidebar > .widget-area > h2 {
   } // h3
 } // .profile
 .get-started, .load-jobs {
-  background: #10D080;
+  background: $head-col;
   color: #FFF;
   text-decoration: none;
   width: calc(100% - 40px);
@@ -644,7 +639,7 @@ aside#sidebar > .widget-area > h2 {
   margin-bottom: 10px;
   line-height: 1.3;
   a, a:visited {
-    color: #10D080;
+    color: $head-col;
     font-size: 1.25em;
     font-weight: 600;
   } // a, a:visited
@@ -684,7 +679,7 @@ aside#sidebar > .widget-area > h2 {
   position: relative;
   h2 {
     height: 50px;
-    background: #10D080;
+    background: $head-col;
     line-height: 50px;
     color: #FFF;
     padding: 0 20px;
@@ -707,7 +702,7 @@ aside#sidebar > .widget-area > h2 {
 .selected-job-link {
   padding: 20px;
   > a, a:visited {
-    color: #10D080;
+    color: $head-col;
     font-size: 1.4em;
     font-weight: 600;
     line-height: 1.3;

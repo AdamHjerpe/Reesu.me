@@ -138,7 +138,7 @@ Crew at Reesume';
   
   <link rel="canonical" href="http://reesu.me/" />
   <link rel="image_src" href="http://reesu.me/asset/img/img_src.png" />
-  <link rel="stylesheet" href="<?php echo BASEURL; ?>dev/css/style.css" media="all" type="text/css" />
+  <link rel="stylesheet" href="<?php echo BASEURL; ?>/css/style.css" media="all" type="text/css" /> <!-- //?<?php echo date(); ?> -->
 
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>

@@ -163,7 +163,7 @@ html, body {
   background: #c14444; }
 
 a.logo {
-  background: #10D080;
+  background: #c14444;
   float: left;
   text-indent: 20px;
   width: 8rem;
@@ -241,7 +241,7 @@ a.logo {
     .notification {
       display: none; } }
 
-.clear, .headings:after, #main:after, #paper:after, header:after, #pagewrap:after {
+.clear, .headings:after, #main:after, #paper:after, #pagewrap:after {
   content: '';
   display: block;
   clear: both; }
@@ -306,7 +306,7 @@ aside.main-sign-up {
     width: calc(100% - 18px);
     margin-top: .5em; }
     aside.main-sign-up form > input[type=submit] {
-      background: #10D080;
+      background: #c14444;
       color: #FFF;
       width: 100%;
       border: 0px; }
@@ -341,9 +341,6 @@ aside.main-sign-up {
   color: #949796; }
 
 /* Resume */
-header {
-  min-height: 100px; }
-
 figure.me {
   display: block;
   float: right;
@@ -545,7 +542,7 @@ aside#sidebar > .widget-area > h2 {
   font-weight: 400; }
 
 .get-started, .load-jobs {
-  background: #10D080;
+  background: #c14444;
   color: #FFF;
   text-decoration: none;
   width: calc(100% - 40px);
@@ -568,7 +565,7 @@ aside#sidebar > .widget-area > h2 {
   margin-bottom: 10px;
   line-height: 1.3; }
   .job-list-view a, .job-list-view a:visited {
-    color: #10D080;
+    color: #c14444;
     font-size: 1.25em;
     font-weight: 600; }
   .job-list-view a:hover {
@@ -597,7 +594,7 @@ aside#sidebar > .widget-area > h2 {
   position: relative; }
   .selected-job h2 {
     height: 50px;
-    background: #10D080;
+    background: #c14444;
     line-height: 50px;
     color: #FFF;
     padding: 0 20px;
@@ -618,7 +615,7 @@ aside#sidebar > .widget-area > h2 {
 .selected-job-link {
   padding: 20px; }
   .selected-job-link > a, .selected-job-link a:visited {
-    color: #10D080;
+    color: #c14444;
     font-size: 1.4em;
     font-weight: 600;
     line-height: 1.3; }
