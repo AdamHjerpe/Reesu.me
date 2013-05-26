@@ -147,12 +147,33 @@ Crew at Reesume';
 <body>
 <!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 <header class="headings">
-	<section class="wrapper">
-		<a class="logo" href="<?php echo BASEURL; ?>">
-			<h1>R<span>eesume - Create your beautiful resume within minitues, free!</span></h1>
+	<section class="header-wrap">
+		<a class="header-slogan"href="<?php echo BASEURL; ?>">
+			<h1>Reesu.me<span> - Create your beautiful resume within minitues, free!</span></h1>
 		</a>
 		
-		<ul id="nav">
+		<?php
+			# Notifications
+			if (auth()) {
+				$sql = mysql_query("SELECT * FROM notifications WHERE members_to='".get_id()."' ORDER BY viewed ASC LIMIT 1") or die(mysql_error());
+				if (mysql_num_rows($sql)>0) {
+					while ($row = mysql_fetch_assoc($sql)) {
+						echo '<div class="notification"><p>'.$row['text'].'</p></div>';
+					}
+				}
+		
+				else {
+					echo '<div class="notification"><p>You have no new notifications</p></div>';
+				}
+		
+			}
+				
+			else {
+				echo '<div class="notification"><p><a href="'.BASEURL.'#sign-up">Sign up</a> and create your own resume for free!</p></div>';
+			}
+		?>
+		
+		<ul class="nav">
 			<li><a class="nav-icon" href="#"> </a>
 				<?php 
 					# User signed-in navigation
@@ -175,25 +196,5 @@ Crew at Reesume';
 			</li>
 		</ul>
 		
-		<?php
-			# Notifications
-			if (auth()) {
-				$sql = mysql_query("SELECT * FROM notifications WHERE members_to='".get_id()."' ORDER BY viewed ASC LIMIT 1") or die(mysql_error());
-				if (mysql_num_rows($sql)>0) {
-					while ($row = mysql_fetch_assoc($sql)) {
-						echo '<div class="notification"><p>'.$row['text'].'</p></div>';
-					}
-				}
-		
-				else {
-					echo '<div class="notification"><p>You have no new notifications</p></div>';
-				}
-		
-			}
-				
-			else {
-				echo '<div class="notification"><p><a href="'.BASEURL.'#sign-up">Sign up</a> and create your own resume for free!</p></div>';
-			}
-		?>
 	</section>
 </header>

@@ -110,7 +110,7 @@ body {
 // 3.1 Header styling //
 ////////////////////////
 
-header {
+.headings {
   margin: 0 0 0 0;
   width: 100%;
   height: 6em;
@@ -120,13 +120,13 @@ header {
 }
 
 .header-wrap {
-  position: fixed;
+  position: absolute;
   top: 0em;
   bottom: 0;
   left: 50%;
   margin-left: -460px;
   width: 1070px;
-  height: auto;
+  height: 5.5em;
   h1 {
     float: left;
     padding: 0 0 0 1em;
@@ -136,7 +136,9 @@ header {
     font-weight: 700;
     font-family: $logo-font;
     font-size: 3em;
-    line-height: 2em;}
+    line-height: 1.8em;
+    span { 
+      display: none;}} // span h1
     @media screen and (max-width: $break-large) {
       left: 5%;
       margin-left: 0;
@@ -149,22 +151,40 @@ header {
       padding: 0 5% 0 5%;
       width: 90%;
     }
-  a {
-    border-bottom: none;
+    .notification {
+      font-size: 0.8em;
+      margin: 0 0 0 1.8em;
+      line-height: 2.8em;
+      float: left;
+      width: 22em; 
+    }
+  p, a {
+    margin: 2.5em 0em;
+    width: auto;
+  }
+  p {
     color: lighten($bg-col, 5%);
-    &:visited, &:focus, &:active, &:hover {
+  }
+  a {
+    border-bottom: 0.1em solid lighten($bg-col, 5%);
+    color: lighten($bg-col, 5%);
+    &:visited {
+      border-bottom: 0.1em solid lighten($bg-col, 5%);
+    };
+    &:focus, &:active, &:hover {
       border-bottom: none;
       color: lighten($bg-col, 5%);
     }
   }
-    ul {
+    ul.nav {
       float: right;
       margin: 2.3em 0;
+      width: auto;
       li {
         display: inline-block;
         float: left;
         padding: 0 1em;
-        border-right: 2px solid lighten($bg-col, 5%);
+        border-right: 0.1em solid lighten($bg-col, 5%);
         color: lighten($bg-col, 5%);
         line-height: 1.4em;
         &:last-of-type {
@@ -250,7 +270,7 @@ header {
 
 .sidebar{
   position: fixed;
-  top: 4em;
+  top: 9em;
   bottom: 0;
   left: 50%;
   margin-left: -460px;
@@ -360,8 +380,13 @@ header {
 // 404 Page Styling //
 //////////////////////
 
+.error404 {
+  hgroup {
+    h1 {
 
-
+    }
+  }
+}
 
 
 
