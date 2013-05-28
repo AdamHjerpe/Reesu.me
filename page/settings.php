@@ -32,7 +32,7 @@
 		<section class="content">
 			<h1>Settings</h1>
 
-			<form id="settings" action="" method="post" enctype="multipart/form-data">
+			<form class="settings" action="" method="post" enctype="multipart/form-data">
 			
 			<p>
 				<label>Your name</label>

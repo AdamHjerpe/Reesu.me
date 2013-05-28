@@ -286,7 +286,6 @@ body {
 .contact-info {
 
 }
-
   .contact-info-name {
 
   }
@@ -298,11 +297,12 @@ body {
     text-indent: 1em;
   }
 
-
 /////////////////
 // 3.3 Sidebar //
 /////////////////
+
 $sidebar-width: 13em;
+
 .sidebar{
   position: absolute;
   top: 9em;
@@ -412,6 +412,129 @@ $sidebar-width: 13em;
   }
 }
 
+//////////////////////////////////
+// Logged in profile in sidebar //
+//////////////////////////////////
+
+.profile, .jobs {
+  position: relative;
+} // .profile, .jobs 
+.profile {
+  > img {
+    -moz-border-radius: 50px;
+    border-radius: 50px; width: 100px;
+    margin-left: calc(50% - 50px);
+    margin-top: 20px;
+  } // > img
+  @extend .content-box;
+  padding: 0;
+} // .profile
+.get-started, .load-jobs {
+  background: $head-col;
+  color: #FFF;
+  text-decoration: none;
+  width: $sidebar-width;
+  text-align: center;
+  text-transform: uppercase;
+  height: 50px;
+  line-height: 50px;
+  display: inline-block;
+  position: relative;
+  margin: 20px 0;
+  &:hover {
+    text-decoration: underline;
+  } // &:hover
+} // .get-started, .load-jobs
+
+
+////////////////////////
+// Joblist in sidebar //
+////////////////////////
+
+.job-list-view {
+  padding: 0 1.5em;
+  margin-bottom: 10px;
+  line-height: 1.3;
+  a, a:visited {
+    color: $head-col;
+    font-size: 1.25em;
+    font-weight: 600;
+  } // a, a:visited
+  p {
+      font-size: .65em;
+    > a {
+      color: #4D4D4D;
+      font-weight: .65em;
+      font-weight: 400;
+      &:visited {
+        color: #4D4D4D;
+        font-weight: .65em;
+        font-weight: 400;
+      } // &:visited
+    } // > a
+    font-size: .65em;
+  } // p
+  &:last-of-type {
+    padding-bottom: 50px;
+  } // &:last-of-type
+  @media screen and (max-width: $break-x-large) {
+    a, a:visited {
+      font-size: 1.1em;
+    } // a, a:visited 
+  } // @media screen $break-x-large
+  @media screen and (max-width: $break-medium) {
+    a, a:visited {
+      font-size: 1.25em;
+    } // a, a:visited
+  } // @media screen $break-medium
+} // .job-list-view
+
+///////////////////
+// Settings Page //
+///////////////////
+
+.settings {
+  //form {
+    input {
+      padding: 0.5em;
+      color: #949796;
+      border: 2px #949796 solid;
+      background: #FFF;
+      display: block;
+      font-size: 1em;
+      width: calc(100% - 18px);
+      margin-top: .5em;
+      &[type=submit] {
+        background: $head-col;
+        color: #FFF;
+        width: 100%;
+        border: 0px;
+        &:hover {
+          color: rgba(255,255,255, .8);
+          _color: #EEE;
+        } // &:hover
+      } // &[type=submit]
+    //} // input 
+    > ul li {
+      display: inline-block;
+      list-style-type: none;
+      line-height: 2;
+      a, a:visited {
+        color: #4D4D4D;
+        font-size: .8em;
+      } // a, a:visited
+      a:hover {
+        text-decoration: underline;
+      } // a:hover;
+      &:first-of-type {
+        float: left;
+      }
+      &:last-of-type {
+        float: right;
+      }
+    } // > ul li
+  } // form
+} // .settings
 
 //////////////////////
 // 404 Page Styling //

@@ -67,7 +67,9 @@ if (auth()) {
       <article>
         <h1>My resumes</h1>
         <div class="latest-news">
-          D
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti tempore deserunt earum itaque nesciunt maxime! Perferendis, mollitia, minima, nulla totam ullam quibusdam et quas temporibus veritatis quos odit nobis officiis.</p>
+          <p>Possimus saepe cumque quod officia dicta ab suscipit alias distinctio nam porro. Quas, debitis, itaque, cupiditate vitae aspernatur error ex saepe natus atque corporis odio praesentium blanditiis consequatur dicta ipsa!</p>
+          <p>Autem, dignissimos, molestiae iste minima ipsam atque rerum fugiat neque dolor quo provident blanditiis veniam fuga inventore totam a vitae dolorem veritatis at sit magni nostrum unde illum tempore hic.</p>
         </div>
       </article>
       

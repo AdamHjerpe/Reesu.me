@@ -395,10 +395,10 @@ body {
     .wrapper {
       padding: 0; } }
 
-.content-box, .content, .sidebar, #sidebar > .widget-area, .profile {
+.content-box, .content, .sidebar, .profile, #sidebar > .widget-area, .selected-job {
   padding: 20px;
   border-bottom: 1em solid #c14444; }
-  .content-box h2, .content h2, .sidebar h2, #sidebar > .widget-area h2, .profile h2, .content-box h3, .content h3, .sidebar h3, #sidebar > .widget-area h3, .profile h3, .content-box h1, .content h1, .sidebar h1, #sidebar > .widget-area h1, .profile h1 {
+  .content-box h2, .content h2, .sidebar h2, .profile h2, #sidebar > .widget-area h2, .selected-job h2, .content-box h3, .content h3, .sidebar h3, .profile h3, #sidebar > .widget-area h3, .selected-job h3, .content-box h1, .content h1, .sidebar h1, .profile h1, #sidebar > .widget-area h1, .selected-job h1 {
     font-style: normal;
     font-weight: 700;
     background: #555555;
@@ -408,17 +408,17 @@ body {
     color: #dddddd;
     text-transform: uppercase;
     margin: 20px -20px 20px -20px; }
-    .content-box h2:first-of-type, .content h2:first-of-type, .sidebar h2:first-of-type, #sidebar > .widget-area h2:first-of-type, .profile h2:first-of-type, .content-box h3:first-of-type, .content h3:first-of-type, .sidebar h3:first-of-type, #sidebar > .widget-area h3:first-of-type, .profile h3:first-of-type, .content-box h1:first-of-type, .content h1:first-of-type, .sidebar h1:first-of-type, #sidebar > .widget-area h1:first-of-type, .profile h1:first-of-type {
+    .content-box h2:first-of-type, .content h2:first-of-type, .sidebar h2:first-of-type, .profile h2:first-of-type, #sidebar > .widget-area h2:first-of-type, .selected-job h2:first-of-type, .content-box h3:first-of-type, .content h3:first-of-type, .sidebar h3:first-of-type, .profile h3:first-of-type, #sidebar > .widget-area h3:first-of-type, .selected-job h3:first-of-type, .content-box h1:first-of-type, .content h1:first-of-type, .sidebar h1:first-of-type, .profile h1:first-of-type, #sidebar > .widget-area h1:first-of-type, .selected-job h1:first-of-type {
       margin: -20px -20px 20px -20px; }
-  .content-box h1, .content h1, .sidebar h1, #sidebar > .widget-area h1, .profile h1 {
+  .content-box h1, .content h1, .sidebar h1, .profile h1, #sidebar > .widget-area h1, .selected-job h1 {
     font-size: 1.5em; }
-  .content-box h2, .content h2, .sidebar h2, #sidebar > .widget-area h2, .profile h2 {
+  .content-box h2, .content h2, .sidebar h2, .profile h2, #sidebar > .widget-area h2, .selected-job h2 {
     font-size: 1.4em; }
-  .content-box h3, .content h3, .sidebar h3, #sidebar > .widget-area h3, .profile h3 {
+  .content-box h3, .content h3, .sidebar h3, .profile h3, #sidebar > .widget-area h3, .selected-job h3 {
     font-size: 1.3em; }
-  .content-box h4, .content h4, .sidebar h4, #sidebar > .widget-area h4, .profile h4 {
+  .content-box h4, .content h4, .sidebar h4, .profile h4, #sidebar > .widget-area h4, .selected-job h4 {
     font-size: 1.2em; }
-  .content-box h5, .content h5, .sidebar h5, #sidebar > .widget-area h5, .profile h5 {
+  .content-box h5, .content h5, .sidebar h5, .profile h5, #sidebar > .widget-area h5, .selected-job h5 {
     font-size: 1.1em; }
 
 .content {
@@ -538,6 +538,92 @@ body {
           color: #eaeaea; }
       .sidebar .main-nav ul li:after {
         clear: both; } }
+
+.profile, .jobs {
+  position: relative; }
+
+.profile {
+  padding: 0; }
+  .profile > img {
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+     width: 100px;
+    margin-left: calc(50% - 50px);
+    margin-top: 20px; }
+
+.get-started, .load-jobs {
+  background: #c14444;
+  color: #FFF;
+  text-decoration: none;
+  width: 13em;
+  text-align: center;
+  text-transform: uppercase;
+  height: 50px;
+  line-height: 50px;
+  display: inline-block;
+  position: relative;
+  margin: 20px 0; }
+  .get-started:hover, .load-jobs:hover {
+    text-decoration: underline; }
+
+.job-list-view {
+  padding: 0 1.5em;
+  margin-bottom: 10px;
+  line-height: 1.3; }
+  .job-list-view a, .job-list-view a:visited {
+    color: #c14444;
+    font-size: 1.25em;
+    font-weight: 600; }
+  .job-list-view p {
+    font-size: .65em;
+    font-size: .65em; }
+    .job-list-view p > a {
+      color: #4D4D4D;
+      font-weight: .65em;
+      font-weight: 400; }
+      .job-list-view p > a:visited {
+        color: #4D4D4D;
+        font-weight: .65em;
+        font-weight: 400; }
+  .job-list-view:last-of-type {
+    padding-bottom: 50px; }
+  @media screen and (max-width: 1200px) {
+    .job-list-view a, .job-list-view a:visited {
+      font-size: 1.1em; } }
+  @media screen and (max-width: 640px) {
+    .job-list-view a, .job-list-view a:visited {
+      font-size: 1.25em; } }
+
+.settings input {
+  padding: 0.5em;
+  color: #949796;
+  border: 2px #949796 solid;
+  background: #FFF;
+  display: block;
+  font-size: 1em;
+  width: calc(100% - 18px);
+  margin-top: .5em; }
+  .settings input[type=submit] {
+    background: #c14444;
+    color: #FFF;
+    width: 100%;
+    border: 0px; }
+    .settings input[type=submit]:hover {
+      color: rgba(255, 255, 255, 0.8);
+      _color: #EEE; }
+  .settings input > ul li {
+    display: inline-block;
+    list-style-type: none;
+    line-height: 2; }
+    .settings input > ul li a, .settings input > ul li a:visited {
+      color: #4D4D4D;
+      font-size: .8em; }
+    .settings input > ul li a:hover {
+      text-decoration: underline; }
+    .settings input > ul li:first-of-type {
+      float: left; }
+    .settings input > ul li:last-of-type {
+      float: right; }
 
 /* Hover-transision */
 :hover {
@@ -695,20 +781,20 @@ a.logo {
   font-weight: 400;
   font-style: italic; }
 
-.main-sign-up, #settings {
+.main-sign-up {
   padding: 20px;
   max-width: 260px;
   width: 100%;
   height: 460px;
   background: #dddddd; }
-  .main-sign-up h3, #settings h3 {
+  .main-sign-up h3 {
     margin: 20px -20px 20px -20px; }
-    .main-sign-up h3:first-of-type, #settings h3:first-of-type {
+    .main-sign-up h3:first-of-type {
       margin: -20px -20px 20px -20px; }
-    .main-sign-up h3 > span, #settings h3 > span {
+    .main-sign-up h3 > span {
       font-weight: 200;
       font-style: italic; }
-  .main-sign-up form input, #settings form input {
+  .main-sign-up form input {
     padding: 0.5em;
     color: #949796;
     border: 2px #949796 solid;
@@ -717,26 +803,26 @@ a.logo {
     font-size: 1em;
     width: calc(100% - 18px);
     margin-top: .5em; }
-    .main-sign-up form input[type=submit], #settings form input[type=submit] {
+    .main-sign-up form input[type=submit] {
       background: #c14444;
       color: #FFF;
       width: 100%;
       border: 0px; }
-      .main-sign-up form input[type=submit]:hover, #settings form input[type=submit]:hover {
+      .main-sign-up form input[type=submit]:hover {
         color: rgba(255, 255, 255, 0.8);
         _color: #EEE; }
-  .main-sign-up form > ul li, #settings form > ul li {
+  .main-sign-up form > ul li {
     display: inline-block;
     list-style-type: none;
     line-height: 2; }
-    .main-sign-up form > ul li a, .main-sign-up form > ul li a:visited, #settings form > ul li a, #settings form > ul li a:visited {
+    .main-sign-up form > ul li a, .main-sign-up form > ul li a:visited {
       color: #4D4D4D;
       font-size: .8em; }
-    .main-sign-up form > ul li a:hover, #settings form > ul li a:hover {
+    .main-sign-up form > ul li a:hover {
       text-decoration: underline; }
-    .main-sign-up form > ul li:first-of-type, #settings form > ul li:first-of-type {
+    .main-sign-up form > ul li:first-of-type {
       float: left; }
-    .main-sign-up form > ul li:last-of-type, #settings form > ul li:last-of-type {
+    .main-sign-up form > ul li:last-of-type {
       float: right; }
 
 /* Placeholder Color */
@@ -926,67 +1012,10 @@ hgroup > h1 {
       #sidebar > .widget-area:last-of-type {
         float: none; } }
 
-.profile, .jobs {
-  position: relative; }
-
-.profile {
-  padding: 0; }
-  .profile > img {
-    -moz-border-radius: 50px;
-    border-radius: 50px;
-     width: 100px;
-    margin-left: calc(50% - 50px);
-    margin-top: 20px; }
-
-.get-started, .load-jobs {
-  background: #c14444;
-  color: #FFF;
-  text-decoration: none;
-  width: 13em;
-  text-align: center;
-  text-transform: uppercase;
-  height: 50px;
-  line-height: 50px;
-  display: inline-block;
-  position: relative;
-  margin: 20px; }
-  .get-started:hover, .load-jobs:hover {
-    text-decoration: underline; }
-
 .jobs h2 a {
   float: right;
   margin-right: 20px;
   margin-top: 2px; }
-
-.job-list-view {
-  padding: 0 1.5em;
-  margin-bottom: 10px;
-  line-height: 1.3; }
-  .job-list-view a, .job-list-view a:visited {
-    color: #c14444;
-    font-size: 1.25em;
-    font-weight: 600; }
-  .job-list-view a:hover {
-    text-decoration: underline; }
-  .job-list-view p {
-    font-size: .65em;
-    font-size: .65em; }
-    .job-list-view p > a {
-      color: #4D4D4D;
-      font-weight: .65em;
-      font-weight: 400; }
-      .job-list-view p > a:visited {
-        color: #4D4D4D;
-        font-weight: .65em;
-        font-weight: 400; }
-  .job-list-view:last-of-type {
-    padding-bottom: 50px; }
-  @media screen and (max-width: 1200px) {
-    .job-list-view a, .job-list-view a:visited {
-      font-size: 1.1em; } }
-  @media screen and (max-width: 640px) {
-    .job-list-view a, .job-list-view a:visited {
-      font-size: 1.25em; } }
 
 .selected-job {
   position: relative; }
@@ -1006,7 +1035,7 @@ hgroup > h1 {
     text-transform: uppercase; }
 
 .google-maps {
-  width: 100%;
+  width: calc(100% -40px);
   overflow: hidden;
   display: block; }
 
